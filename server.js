@@ -58,5 +58,5 @@ app.get('/api/profile/:username', (req, res) => {
 });
 
 const port = process.env.PORT || 3005;
-app.use('/',express.static('client/build'))
+app.use('/',express.static('client/build'));
 app.listen(port, () => console.log(`Listening on port ${port}`));

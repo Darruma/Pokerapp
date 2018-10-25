@@ -32,7 +32,7 @@ class App extends Component {
                                 <Route path='/profile/:userId' component={Profile}></Route>
                                 <Route path='/leaderboard' component={Leaderboard}></Route>
                                 <Route path='/game' component={Game}> </Route>
-                                <Route path='/acoount' component={Account}> </Route>
+                                <Route path='/account' component={Login}> </Route>
                             </Switch>
                         </div>
                     </Router>

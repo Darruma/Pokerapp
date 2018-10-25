@@ -14,7 +14,7 @@ class Main extends Component
             <nav className='side-bar'>
             <Link className='link' to='/leaderboard'><img  className='icon' src={leaderboard}></img></Link>
             <Link className='link' to='/game'><img  className='icon' src={poker}></img></Link>
-            <Link className='link' to='/profiles'><img  className='icon' src={profiles}></img></Link>
+            <Link className='link' to='/account'><img  className='icon' src={profiles}></img></Link>
             </nav>
             </div>
         )

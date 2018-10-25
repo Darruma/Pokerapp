@@ -6,3 +6,45 @@
     justify-content: center;
     align-items: center;
 }
+
+.input
+{
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 30px;
+    outline: none;
+    border: none;
+}
+
+.username-container
+{
+    margin-bottom: 10px;
+}
+
+.login-button-container
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+.login-button
+{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+.login-button:hover
+{
+    opacity: 0.6;
+}
