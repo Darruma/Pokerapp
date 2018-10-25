@@ -1,0 +1,24 @@
+.side-bar
+{
+    height: 100%;
+    width: 70px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 100px;
+}
+.link
+{
+    display:block;
+    padding-top: 150px;
+    text-decoration: none;
+}
+.icon
+{
+ width: 45px;
+ height: 45px;
+}
+

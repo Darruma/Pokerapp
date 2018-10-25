@@ -1,0 +1,33 @@
+.friend
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:200px;
+    height:50px;
+    padding-bottom: 20px;
+}
+
+.friend-image
+{
+    background: #fff;
+    border: 5px solid #fff;
+    height: 40px;
+    width: 40px;
+    
+}
+.image-40
+{
+    width:40px;
+    height: 40px;
+}
+
+.friend-name
+{
+height: 40px;
+}
+.friend-link
+{
+    text-decoration: none;
+    color:black;
+}
