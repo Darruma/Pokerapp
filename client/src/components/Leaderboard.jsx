@@ -7,6 +7,7 @@ import updateLeaderboard from '../actions/leaderboard'
 class Leaderboard extends Component {
 
     render() {
+
         return (
             <div className='App'>
                 <ul className='leaderboard-container'>
@@ -33,7 +34,7 @@ class Leaderboard extends Component {
         )
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.dispatch(updateLeaderboard());
     }
 }

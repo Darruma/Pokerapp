@@ -1,0 +1,36 @@
+.poker-table
+{
+    width: 800px;
+    height: 350px;
+    background: #5cb85c;
+    border-radius: 175px;
+    text-align: center;
+    padding: 100px 0 0;
+    margin-top: 20vh;
+    border: 10px solid #43290e;
+}
+
+.poker-container
+{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    flex-direction: column;
+}
+.poker-ui
+{
+    width: 800px;
+}
+.im
+{
+    float:left;
+}
+.messages
+{
+    display: flex;
+    flex-direction: column;
+}
+.play-buttons
+{
+    float:right;
+}
