@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../css/piechart.css'
 import PieChart from 'react-minimal-pie-chart';
 class WinsChart extends Component {
 
