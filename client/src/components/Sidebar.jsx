@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import poker from '../graphics/poker.png'
 import leaderboard from '../graphics/leaderboard.png';
 import profiles from '../graphics/profiles.png'
-class Main extends Component
+class Sidebar extends Component
 {   
     render()
     {
@@ -23,4 +23,4 @@ class Main extends Component
 
 }
 
-export default Main;
+export default Sidebar;

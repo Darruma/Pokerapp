@@ -6,7 +6,7 @@ class Posts extends Component
     {
         
         return(
-            <div style={{display:'flex',flexDirection:'column',overflow:'hidden'}} > 
+            <div className='posts' > 
                 {this.props.posts.map(element =>
                     {
                         return(

@@ -1,13 +1,13 @@
 .poker-table
 {
+    position: relative;
     width: 800px;
-    height: 350px;
+    height: 500px;
     background: #5cb85c;
     border-radius: 175px;
     text-align: center;
-    padding: 100px 0 0;
-    margin-top: 20vh;
     border: 10px solid #43290e;
+    z-index: 0;
 }
 
 .poker-container
@@ -16,9 +16,11 @@
     align-items:center;
     justify-content: center;
     flex-direction: column;
+    height: 100vh;
 }
 .poker-ui
 {
+    text-align: center;
     width: 800px;
 }
 .poker-button
@@ -44,18 +46,28 @@
 .im
 {
     float:left;
+    padding:80px;
+    width: 10px;
 }
 .messages
 {
     display: flex;
     flex-direction: column;
+    height: 600px;
+}
+.input-message
+{
+    resize: none;
 }
 .play-buttons
 {
-    float:right;
+    text-align: center;
 }
 .board-cards
 {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
 }

@@ -53,9 +53,8 @@
 .main
 {
     overflow:auto;
-    padding-left: 50px;
-    margin-left:1px;
     width:30vh;
+
     border-right: 2px groove rgba(28,110,164,0.22);
 }
 
@@ -71,10 +70,17 @@
 }
 .posts-title
 {
- padding-left:7.5vh;
- text-decoration: underline;
+    text-align: center;
+    text-decoration: underline;
+    padding-bottom: 50px;
 }
-
+.posts
+{
+    display: flex;
+    flex-direction: column;
+    padding-left:30px;
+   
+}
 
 .statistics
 {
@@ -116,4 +122,12 @@
 .green
 {
     background-color: #0dc441;
+}
+
+.post-input
+{
+    resize:none;
+    width: 97.5%;
+    margin-right: 1px;
+    
 }
