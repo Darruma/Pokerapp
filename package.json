@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"nodemon server.js\" \" cd client && npm run start\"",
     "start": "nodemon server.test.js",
-    "startother":"nodemon server.js"
+    "home":"nodemon server.js"
   },
   "engines": {
     "node": "8.9.4"
