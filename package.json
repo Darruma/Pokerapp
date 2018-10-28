@@ -6,13 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"nodemon server.js\" \" cd client && npm run start\"",
-    "start":"nodemon server.js"
+    "start": "nodemon server.js"
   },
   "author": "Darruma",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.3.7",
     "nodemon": "^1.18.4",
     "recharts": "^1.0.0"
   }
