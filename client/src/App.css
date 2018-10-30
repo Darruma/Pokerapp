@@ -14,4 +14,23 @@
  }
 }
 
-
+.homepage-title
+{
+  font-family: 'Arvo', serif;
+  font-size: 50px;
+  justify-self: center;
+  padding-bottom: 100px;
+}
+.homepage
+{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-link
+{
+  text-decoration: none;
+  color: black;
+}

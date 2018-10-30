@@ -43,6 +43,7 @@
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 100px;
 }
 .login-button:hover
 {

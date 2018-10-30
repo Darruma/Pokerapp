@@ -21,6 +21,7 @@
 {
     text-align: center;
     width: 800px;
+    z-index:1
 }
 .poker-button
 {
