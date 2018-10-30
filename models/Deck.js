@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
 const db = mongoose.createConnection('mongodb://localhost/pokerdb');
 
 var DeckSchema = new mongoose.Schema({

@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
 const db = mongoose.createConnection('mongodb://localhost/pokerdb');
 const Deck = require('./Deck')
 const Player = require('./Player');
@@ -13,16 +12,16 @@ var TableSchema = new mongoose.Schema({
     {
       type:Array,
       default:[]
-    }
+    },
     pot:
     {
       type:Number,
       default:0
-    }
+    },
     round:{
       type:Number,
       default:0
-    }
+    },
     boardCards:
     {
       type:Array,

@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
 const db = mongoose.createConnection('mongodb://localhost/pokerdb');
 const User = require('./User');
 const Table = require('./Table')
