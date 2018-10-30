@@ -10,11 +10,11 @@ var PlayerSchema = new mongoose.Schema({
   user:{
     type:String,
     default:""
-  }
+  },
   chips:{
     type:Number,
     default:500
-  }
+  },
   currentCards:{
     type:Array,
     default:[]
@@ -30,7 +30,7 @@ var PlayerSchema = new mongoose.Schema({
   table:{
     type:String,
     default:""
-  }
+  },
   socket_id:{
     type:String
   },

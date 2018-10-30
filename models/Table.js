@@ -6,8 +6,8 @@ var TableSchema = new mongoose.Schema({
 
     deck_id:{
       type:String,
-      default:'';
-    }
+      default:''
+    },
     players:
     {
       type:Array,

@@ -6,8 +6,9 @@ var DeckSchema = new mongoose.Schema({
   cards:
   {
     type:Array,
-    default:[{rank:'a',suit:'diams'},{rank:'a',suit:'clubs'},{rank:'a',suit:'spades'},{rank:'a',suit:'hearts'},
-    {rank:'k',suit:'diams'},{rank:'k',suit:'clubs'},  {rank:'k',suit:'spades'},{rank:'k',suit:'hearts'},
+    default:[
+    {rank:'a',suit:'diams'},{rank:'a',suit:'clubs'},{rank:'a',suit:'spades'},{rank:'a',suit:'hearts'},
+    {rank:'k',suit:'diams'},{rank:'k',suit:'clubs'},{rank:'k',suit:'spades'},{rank:'k',suit:'hearts'},
     {rank:'q',suit:'diams'},{rank:'q',suit:'clubs'},{rank:'q',suit:'spades'},{rank:'q',suit:'hearts'},
     {rank:'j',suit:'diams'},{rank:'j',suit:'clubs'},{rank:'q',suit:'spades'},{rank:'q',suit:'hearts'},
     {rank:'10',suit:'diams'},{rank:'10',suit:'clubs'},{rank:'10',suit:'spades'},{rank:'10',suit:'hearts'},
@@ -18,9 +19,7 @@ var DeckSchema = new mongoose.Schema({
     {rank:'5',suit:'diams'},{rank:'5',suit:'clubs'},{rank:'5',suit:'spades'},{rank:'5',suit:'hearts'},
     {rank:'4',suit:'diams'},{rank:'4',suit:'clubs'},{rank:'4',suit:'spades'},{rank:'4',suit:'hearts'},
     {rank:'3',suit:'diams'},{rank:'3',suit:'clubs'},{rank:'3',suit:'spades'},{rank:'3',suit:'hearts'},
-    {rank:'2',suit:'diams'},{rank:'2',suit:'clubs'},{rank:'2',suit:'spades'},{rank:'2',suit:'hearts'}
-  ];
-]
+    {rank:'2',suit:'diams'},{rank:'2',suit:'clubs'},{rank:'2',suit:'spades'},{rank:'2',suit:'hearts'}]
   }
 })
 
