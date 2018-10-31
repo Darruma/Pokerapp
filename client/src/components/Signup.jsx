@@ -17,8 +17,8 @@ class Signup extends Component
                     </div>
                     
                     <div className='password-container'>
-                       <input className='input'  onChange={ (e) => this.handleInputChange(e,'NEW_PASSWORD')} type='password' placeholder="password"></input>
-                        <input className='input' style={{marginTop:'10px'}} onChange={ (e) => this.handleInputChange(e,'NEW_PASSWORD_CONFIRM')} type='password' placeholder="password"></input>
+                       <input className='input'  onChange={ (e) => this.props.dispatch(updateSignupAction('NEW_PASSWORD',e.target.value)) } type='password' placeholder="password"></input>
+                        <input className='input' style={{marginTop:'10px'}} onChange={ (e) => this.props.dispatch(updateSignupAction('NEW_PASSWORD_CONFIRM',e.target.value))} type='password' placeholder="password"></input>
 
                     </div>
                     <div className='login-button-container'>
@@ -32,9 +32,22 @@ class Signup extends Component
     }
      handleFormSubmit = (e,type) =>
       {
-       console.log(this.props.new_username);
-       console.log(this.props.new_password);
-        //do signup
+       e.preventDefault();
+       fetch('/api/signup', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json ",
+        },
+        body: JSON.stringify(
+            {
+                username:this.props.new_username,
+                password:this.props.new_password 
+            }
+        ),
+    })
+    .then(response => response.json()).then(response => {
+        console.log(response);
+    });
       }
     handleInputChange = (e,type) =>
      {

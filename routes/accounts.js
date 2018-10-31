@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 router.post('/login',(req, res) =>
    {
-     const { login_details } = req.body;
+     const login_details = req.body
      User.find(
              {
                  username:login_details.username
@@ -55,7 +55,7 @@ router.post('/login',(req, res) =>
 
 router.post('/signup',(req,res) =>
  {
-        const { signup_details } = req.body;
+        const signup_details  = req.body;
         if(signup_details.username.length < 4)
         {
                 return res.json(
@@ -90,9 +90,10 @@ router.post('/signup',(req,res) =>
                 }
                 var new_user = new User();
                 new_user.username = signup_details.username;
-                new_user.password = newUser.generateHash(signup_details.password);
+                new_user.password = new_user.generateHash(signup_details.password);
                 new_user.save((err, user) => {
 			if (err) {
+                                console.log(err)
 				return res.send({
 					success: false,
 					message: "Server Error"

@@ -1,11 +1,14 @@
 const express = require('express');
-const session = require('express-session');
+const express_session = require('express-session');
 const bodyParser = require('body-parser')
 const logError = (err) => console.log(err)
 const path = require('path');
 const app = express();
 const server = require('http').createServer(app);
-const io = require('client.io').listen(server)
+server.listen(3005, () => {
+	console.log('HTTPS Server running on port 3005');
+});
+const io = require('socket.io').listen(server)
 
 const accounts = require('./routes/accounts');
 const profiles = require('./routes/profiles');
@@ -13,25 +16,28 @@ const tables = require('./routes/tables.js');
 
 const Table = require('./models/Table');
 const Player = require('./models/Player')
-var ios = require('client.io-express-session');
-const mySession = session({ secret: "oregano", resave: false, saveUninitialised: true });
+const session = express_session({ secret: "oregano", resave: false, saveUninitialised: true });
+var sharedsession = require("express-socket.io-session");
+app.use(session);
+io.use(sharedsession(session, {
+    autoSave: true
+}));
 
-app.use(mySession);
-io.use(ios(mySession));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+	extended: true
+}))
+app.use('/api', accounts);
+app.use('/api', profiles);
+app.use('/api', tables);
+
+app.use('/', express.static(path.join(__dirname, '/client/build')))
+app.get('*',(req,res) =>
+{
+    res.sendFile(path.join(__dirname, '/client/build/index.html'));
+})
 io.on('connection', clientsEvents);
 
-function tableJoin(new_player,client,table)
-{
-    client.handshake.session.player_id = new_player._id;
-    client.handshake.session.save();
-    new_player.user = client.handshake.session.user_id;
-    new_player.username = client.handshake.session.username;
-    new_player.table = table._id;
-    new_player.client_id = client.id;
-    new_player.save(logError);
-    table.players.push(new_player);
-    table.save(logError);
-}
 function clientsEvents(client) {
     client.on('joinTable', (tableId) => {
         Table.findById(tableId, (err, table) => {
@@ -44,7 +50,7 @@ function clientsEvents(client) {
             else {
                 client.join('table-' + tableId);
                 var new_player = new Player();
-                tableJoin(new_player,client,table);
+                tableJoin(new_player, client, table);
             }
         })
 
@@ -54,14 +60,13 @@ function clientsEvents(client) {
         if (!client.handshake.session.loggedIn) {
             client.emit('error', 'Not logged in');
         }
-        else{
+        else {
             var new_table = new Table();
             client.join('table-' + tableId);
             var new_player = new Player();
-            tableJoin(new_player,client,new_table);
+            tableJoin(new_player, client, new_table);
         }
     })
-
 
 
 
@@ -73,14 +78,14 @@ function clientsEvents(client) {
     client.on('raise', raise);
 
 }
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use();
-
-app.use('/api', accounts);
-app.use('/api', profiles);
-app.use('/api', tables);
-
-app.use('/', express.static(path.join(__dirname, '/client/build')))
-
-
+function tableJoin(new_player, client, table) {
+    client.handshake.session.player_id = new_player._id;
+    client.handshake.session.save();
+    new_player.user = client.handshake.session.user_id;
+    new_player.username = client.handshake.session.username;
+    new_player.table = table._id;
+    new_player.client_id = client.id;
+    new_player.save(logError);
+    table.players.push(new_player);
+    table.save(logError);
+}

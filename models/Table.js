@@ -73,7 +73,7 @@ TableSchema.methods.flop = function()
  })
 }
 
-TableSchemea.methods.turn = function(){
+TableSchema.methods.turn = function(){
   Deck.findById(deck_id,(err,deck) =>
   {
    this.boardCards.push(deck.pop());

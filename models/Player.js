@@ -45,7 +45,7 @@ PlayerSchema.methods.joinTable = function(tableId){
   this.table = tableId;
 }
 
-Player.methods.addCard = function(card){
+PlayerSchema.methods.addCard = function(card){
   this.currentCards.push(card);
 }
 

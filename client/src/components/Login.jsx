@@ -15,7 +15,7 @@ class Login extends Component {
                     <input className='input' onChange={ (e) => this.handleInputChange(e,'PASSWORD')} type='password' placeholder="password"></input>
                     </div>
                     <div className='login-button-container'>
-                    <button className='login-button'> Login</button>
+                    <button className='login-button'>Login</button>
                         </div>
                 </form>
             </div>
@@ -24,8 +24,21 @@ class Login extends Component {
     handleFormSubmit = (e) => 
     {
        e.preventDefault();
-       console.log(this.props.username);
-       console.log(this.props.password);
+       fetch('/api/login', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json ",
+        },
+        body: JSON.stringify(
+            {
+                username:this.props.username,
+                pasword:this.props.password
+            }
+        ),
+    })
+    .then(response => response.json()).then(response => {
+        console.log(response);
+    });
     }
     handleInputChange = (e,type) =>
     {
