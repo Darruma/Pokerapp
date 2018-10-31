@@ -31,7 +31,9 @@ router.post('/login',(req, res) =>
                                               message:'Server Error'
                                            })
                            })
+                   req.session.loggedIn = true;
                    req.session.user_id = user._id;
+                   req.session.username = username;
                    return res.json(
                            {
                              success:true,
