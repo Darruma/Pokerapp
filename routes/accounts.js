@@ -53,7 +53,55 @@ router.post('/login',(req, res) =>
 
 router.post('/signup',(req,res) =>
  {
+        const { signup_details } = req.body;
+        if(signup_details.username.length < 4)
+        {
+                return res.json(
+                        {
+                                success:false,
+                                message:'Username has to be longer than 4 characters'
+                        }
+                )
+        }
+        if(signup_details.password.length < 4)
+        {
+                return res.json(
+                        {
+                                success:false,
+                                message:'Password has to be longer than 4 characters'
+                        }
+                )
+        }
+        User.find({
+                username:signup_details.username
 
+        },(err,users) =>
+        {
+                if(users.length != 0)
+                {
+                        return res.json(
+                                {
+                                        success:false,
+                                        message:'Username already taken'
+                                }
+                        )
+                }
+                var new_user = new User();
+                new_user.username = signup_details.username;
+                new_user.password = newUser.generateHash(signup_details.password);
+                new_user.save((err, user) => {
+			if (err) {
+				return res.send({
+					success: false,
+					message: "Server Error"
+				});
+			}
+			return res.send({
+				success: true,
+				message: "Signed up"
+			});
+		});
+        })
  }
 )
 

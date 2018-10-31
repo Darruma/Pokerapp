@@ -10,10 +10,33 @@ var UserSchema = new mongoose.Schema({
 	password: {
 		type: String,
 		default: ""
+	},
+	posts:
+	{
+		type:Array,
+		default:[]
+	},
+	wins:
+	{
+		type:Number,
+		default:0
+	},
+	losses:
+	{
+		type:Number,
+		default:0
 	}
-
-
-
+	,
+	draws:
+	{
+		type:Number,
+		default:0
+	},
+	points: 
+	{
+		type:Number,
+		default:0
+	}
 
 });
 

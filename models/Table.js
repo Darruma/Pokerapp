@@ -34,6 +34,11 @@ var TableSchema = new mongoose.Schema({
     mode:{
       type:String,
       default:'Preflop'
+    },
+    gameEnded:
+    {
+      type:Boolean,
+      default:false
     }
 })
 
@@ -47,21 +52,17 @@ TableSchema.methods.dealCards = function(){
 {
   for(var player in this.players)
   {
-    Player.findById(player,(err,player) =>
-    {
-
       if(player.sittingIn)
       {
         player.addCard(deck.pop());
         player.addCard(deck.pop());
       }
-    })
   }
 })
 
 }
 
-TableSchema.methods.Flop = function()
+TableSchema.methods.flop = function()
 {
   Deck.findById(deck_id,(err,deck) =>
  {
@@ -89,7 +90,5 @@ TableSchema.methods.winCondition = function()
 {
 
 }
-
-
 
 module.exports = db.model("Table", TableSchema, "PokerData");
