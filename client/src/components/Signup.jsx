@@ -17,8 +17,8 @@ class Signup extends Component
                     </div>
                     
                     <div className='password-container'>
-                       <input className='input'  onChange={ (e) => this.props.dispatch(updateSignupAction('NEW_PASSWORD',e.target.value)) } type='password' placeholder="password"></input>
-                        <input className='input' style={{marginTop:'10px'}} onChange={ (e) => this.props.dispatch(updateSignupAction('NEW_PASSWORD_CONFIRM',e.target.value))} type='password' placeholder="password"></input>
+                       <input className='input'  onChange={ (e) => this.handleInputChange(e,'NEW_PASSWORD')} type='password' placeholder="password"></input>
+                        <input className='input' style={{marginTop:'10px'}} onChange={ (e) => this.handleInputChange(e,'NEW_PASSWORD_CONFIRM')} type='password' placeholder="password"></input>
 
                     </div>
                     <div className='login-button-container'>

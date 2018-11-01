@@ -37,7 +37,6 @@ var UserSchema = new mongoose.Schema({
 		type:Number,
 		default:0
 	}
-
 });
 
 UserSchema.methods.generateHash = function (password) {
@@ -45,6 +44,6 @@ UserSchema.methods.generateHash = function (password) {
 };
 
 UserSchema.methods.validPassword = function (password) {
-	return bcrypt.compareSync(password, this.password);
+        return bcrypt.compareSync(password, this.password);
 };
 module.exports = db.model("User", UserSchema, "UserData");

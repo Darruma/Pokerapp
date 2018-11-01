@@ -5,7 +5,8 @@ const User = require('../models/User');
 
 router.post('/login',(req, res) =>
    {
-     const login_details = req.body
+     const login_details = req.body;
+     console.log(login_details);
      User.find(
              {
                  username:login_details.username
@@ -23,17 +24,10 @@ router.post('/login',(req, res) =>
                 if(user.validPassword(login_details.password))
                  {
                    user.loggedIn = true;
-                   user.save((err)=>
-                           {
-                                   return res.json(
-                                           {
-                                              success:false,
-                                              message:'Server Error'
-                                           })
-                           })
+                   user.save();
                    req.session.loggedIn = true;
                    req.session.user_id = user._id;
-                   req.session.username = username;
+                   req.session.username = user.username;
                    return res.json(
                            {
                              success:true,
@@ -108,6 +102,33 @@ router.post('/signup',(req,res) =>
  }
 )
 
+router.get('/leaderboard' ,(req ,res) =>
+{
+    User.find((err,users) =>
+    {
+        users = users.sort((a,b) =>
+        {
+                return (a.points > b.points);
+        });
+        var leaderboardData =[];
+        let i = 0;
+        
+        currentUser = users[0];
+        while(currentUser != null && i < 3)
+        {
+            leaderboardData.push(
+                    {
+                        username:currentUser.username,
+                        points:currentUser.points
+                    }
+            )
+            i = i + 1
+            currentUser = users[i];
+        }
+        return res.json(leaderboardData);
+    });
+
+});
 
 
 module.exports = router;

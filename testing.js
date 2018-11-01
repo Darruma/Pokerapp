@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({
 app.use('/api', accounts);
 app.use('/api', profiles);
 app.use('/api', tables);
-
+app.use('/images', express.static(path.join(__dirname, '/client/images/')));
 app.use('/', express.static(path.join(__dirname, '/client/build')))
 app.get('*',(req,res) =>
 {

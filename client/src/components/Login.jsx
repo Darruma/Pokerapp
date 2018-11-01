@@ -32,7 +32,7 @@ class Login extends Component {
         body: JSON.stringify(
             {
                 username:this.props.username,
-                pasword:this.props.password
+                password:this.props.password
             }
         ),
     })
