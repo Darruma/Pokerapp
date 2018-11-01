@@ -20,6 +20,16 @@ router.post('/login',(req, res) =>
                             message:'Server Error'
                      })
                  }
+
+                 if(users.length == 0)
+                 {
+                         return res.json(
+                                 {
+                                         success:false,
+                                         message:'Account not found'
+                                 }
+                         )
+                 }
                 const user = users[0]
                 if(user.validPassword(login_details.password))
                  {
