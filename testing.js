@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 app.use('/api', accounts);
-app.use('/api', profiles);
+app.use('/api/profiles', profiles);
 app.use('/api', tables);
 app.use('/images', express.static(path.join(__dirname, '/client/images/')));
 app.use('/', express.static(path.join(__dirname, '/client/build')))

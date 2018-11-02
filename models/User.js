@@ -16,6 +16,10 @@ var UserSchema = new mongoose.Schema({
 		type:Array,
 		default:[]
 	},
+	profile_pic:{
+		type:String,
+		default:"default_user.png"
+	}
 	wins:
 	{
 		type:Number,
@@ -25,17 +29,20 @@ var UserSchema = new mongoose.Schema({
 	{
 		type:Number,
 		default:0
-	}
-	,
-	draws:
-	{
-		type:Number,
-		default:0
 	},
 	points:
 	{
 		type:Number,
 		default:0
+	},
+	friends
+	{
+		type:Array,
+		default:[]
+	},
+	friend_requests{
+		type:Array,
+		default:[]
 	}
 });
 UserSchema.index({

@@ -6,7 +6,6 @@ const User = require('../models/User');
 router.post('/login',(req, res) =>
    {
      const login_details = req.body;
-     console.log(login_details);
      User.find(
              {
                  username:login_details.username
