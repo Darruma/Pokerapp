@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-//Accounts
-
 router.post('/login',(req, res) =>
    {
      const login_details = req.body;

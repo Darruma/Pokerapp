@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const db = mongoose.createConnection('mongodb://localhost/users');
-
 var UserSchema = new mongoose.Schema({
 	username: {
 		type: String,
@@ -19,7 +18,7 @@ var UserSchema = new mongoose.Schema({
 	profile_pic:{
 		type:String,
 		default:"default_user.png"
-	}
+	},
 	wins:
 	{
 		type:Number,
@@ -35,12 +34,12 @@ var UserSchema = new mongoose.Schema({
 		type:Number,
 		default:0
 	},
-	friends
+	friends:
 	{
 		type:Array,
 		default:[]
 	},
-	friend_requests{
+	friend_requests:{
 		type:Array,
 		default:[]
 	}

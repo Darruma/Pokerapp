@@ -39,12 +39,11 @@ router.get('/search/:username' ,(req,res) =>{
     return res.json(
       users.map((element) =>
     {
-      return
-      {
+      return {
         success:true,
         username:element.username,
         bio: element.bio,
-        image:element.profile_pic
+        image:element.profile_pic,
         id:element._id
       }
     })
@@ -110,7 +109,7 @@ router.post('/sendfriendrequest' ,notLoggedIn,(req,res) =>
       )
     })
   })
-}
+})
 
 
 router.get('/getfriendrequests',notLoggedIn,(req,res) =>{
