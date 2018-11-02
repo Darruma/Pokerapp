@@ -32,12 +32,15 @@ var UserSchema = new mongoose.Schema({
 		type:Number,
 		default:0
 	},
-	points: 
+	points:
 	{
 		type:Number,
 		default:0
 	}
 });
+UserSchema.index({
+	username:'text'
+})
 
 UserSchema.methods.generateHash = function (password) {
 	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

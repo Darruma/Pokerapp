@@ -45,7 +45,7 @@ router.post('/login',(req, res) =>
                            })
                  }
                  else
-                     {  
+                     {
                         return res.json({
                             success:false,
                             message:'Wrong credentials'
@@ -122,9 +122,9 @@ router.get('/leaderboard' ,(req ,res) =>
         });
         var leaderboardData =[];
         let i = 0;
-        
+
         currentUser = users[0];
-        while(currentUser != null && i < 3)
+        while(currentUser != null && i < 5)
         {
             leaderboardData.push(
                     {
@@ -137,7 +137,6 @@ router.get('/leaderboard' ,(req ,res) =>
         }
         return res.json(leaderboardData);
     });
-
 });
 
 
