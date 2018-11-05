@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import User from './User'
 import Posts from './Posts'
 import Statistics from './Statistics';
-import getProfileAction from '../actions/profile'
+import getProfileAction from '.../actions/profile'
 import { connect } from 'react-redux';
 class Account extends Component {
     render() {

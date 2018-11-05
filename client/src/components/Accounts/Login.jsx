@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../css/login.css'
 import { connect } from 'react-redux';
-import updateLoginAction from '../actions/login'
+import updateLoginAction from '.../actions/login'
 class Login extends Component {
     render() {
         return (
@@ -21,7 +21,7 @@ class Login extends Component {
             </div>
         )
     }
-    handleFormSubmit = (e) => 
+    handleFormSubmit = (e) =>
     {
        e.preventDefault();
        fetch('/api/login', {
@@ -42,7 +42,7 @@ class Login extends Component {
     }
     handleInputChange = (e,type) =>
     {
-      
+
        this.props.dispatch(updateLoginAction(type,e.target.value));
     }
 

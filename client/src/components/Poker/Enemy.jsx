@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/enemy.css'
+import '.../css/enemy.css'
 
 class Enemy extends Component
 {

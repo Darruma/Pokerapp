@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import '../css/login.css'
+import '.../css/login.css'
 import { connect } from 'react-redux';
-import updateSignupAction from '../actions/login'
+import updateSignupAction from '.../actions/login'
 
 
 class Signup extends Component
-{   
+{
     render()
-        
+
      {
        return (
       <div className='login-container'>
@@ -15,7 +15,7 @@ class Signup extends Component
                     <div className='username-container'>
                         <input className='input' onChange={ (e) => this.handleInputChange(e,'NEW_USERNAME')}placeholder="username"></input>
                     </div>
-                    
+
                     <div className='password-container'>
                        <input className='input'  onChange={ (e) => this.handleInputChange(e,'NEW_PASSWORD')} type='password' placeholder="password"></input>
                         <input className='input' style={{marginTop:'10px'}} onChange={ (e) => this.handleInputChange(e,'NEW_PASSWORD_CONFIRM')} type='password' placeholder="password"></input>
@@ -27,8 +27,8 @@ class Signup extends Component
                 </form>
         </div>
        )
- 
-     
+
+
     }
      handleFormSubmit = (e,type) =>
       {
@@ -41,7 +41,7 @@ class Signup extends Component
         body: JSON.stringify(
             {
                 username:this.props.new_username,
-                password:this.props.new_password 
+                password:this.props.new_password
             }
         ),
     })
