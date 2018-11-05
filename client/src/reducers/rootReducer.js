@@ -1,4 +1,4 @@
-const initialState = 
+const initialState =
 {
     leaderboard:[],
     profileData:{
@@ -26,7 +26,7 @@ const rootReducer = (state=initialState,action) =>
         case 'UPDATE_LEADERBOARD':
         return Object.assign({}, state, {
             leaderboard:action.payload
-          }) 
+          })
         case 'GET_PROFILE':
         return Object.assign({}, state, {
             profileData:action.payload
@@ -39,11 +39,11 @@ const rootReducer = (state=initialState,action) =>
         return Object.assign({}, state, {
             username:action.payload
           })
- 
+
         case 'UPDATE_NEW_USERNAME':
         return Object.assign({}, state, {
             new_username:action.payload
-          }) 
+          })
          case 'UPDATE_NEW_PASSWORD':
         return Object.assign({}, state, {
          new_password:action.payload
@@ -52,15 +52,20 @@ const rootReducer = (state=initialState,action) =>
         return Object.assign({}, state, {
             new_password_confirm:action.payload
           })
-        
 
-        
-       
-      
-       
+        case 'QUERY_FRIEND':
+          return Object.assign({}, state, {
+              queryData:action.payload
+            })
+
+
+
+
+
+
         default:
             return state;
     }
-    
+
 }
 export default rootReducer;

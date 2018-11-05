@@ -1,16 +1,16 @@
 
-const updateleaderboardAction = () => {
+const friendQueryAction = (query) => {
     return (dispatch) =>
     {
-        fetch('/api/leaderboard')
+        fetch('/api/friendsearch/' + query)
         .then( res => res.json())
         .then((data) =>
         {
             dispatch({
-                type:'UPDATE_LEADERBOARD',
+                type:'QUERY_FRIEND',
                 payload:data
             })
         })
     }
 }
-export default updateleaderboardAction;
+export default friendQueryAction;
