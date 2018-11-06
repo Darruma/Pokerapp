@@ -5,7 +5,7 @@ import getProfileAction from '.../actions/profile'
 import { connect } from 'react-redux';
 import User from './User'
 import Posts from './Posts'
-import Statistics from './Statistics';
+import Statistics from './Stats/Statistics';
 class Profile extends Component {
 
     render() {

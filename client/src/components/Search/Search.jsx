@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import FriendList from './FriendList'
+import UserList from './UserList'
 import friendQueryAction from '.../actions/friend'
 class Search extends Component
 {
@@ -7,8 +7,8 @@ class Search extends Component
   {
     return(<div>
           <input onChange={this.handleChange}></input>
-          <FriendList friendData={this.props.queryData}> </FriendList>
-    <div>)
+          <UserList userData={this.props.queryData}> </UserList>
+    </div>)
   }
 
   handleChange = (e) =>{
