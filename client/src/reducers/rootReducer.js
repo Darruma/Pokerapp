@@ -1,61 +1,67 @@
 const initialState =
 {
-    leaderboard:[],
-    profileData:{
+    leaderboard: [],
+    profileData: {
         username: '',
         image: '',
         bio: '',
         header: '',
         friends: [],
-        posts:[],
-        priceData:[],
-        wins:0,
-        losses:0,
-        draws:0
+        posts: [],
+        priceData: [],
+        wins: 0,
+        losses: 0,
+        draws: 0
     },
-   username:'',
-   password:'',
-   new_username:'',
-   new_password:'',
-   new_password_confirm:''
+    username: '',
+    password: '',
+    new_username: '',
+    new_password: '',
+    new_password_confirm: '',
+    response: {}
 }
 
-const rootReducer = (state=initialState,action) =>
-{
+const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'UPDATE_LEADERBOARD':
-        return Object.assign({}, state, {
-            leaderboard:action.payload
-          })
+            return Object.assign({}, state, {
+                leaderboard: action.payload
+            })
         case 'GET_PROFILE':
-        return Object.assign({}, state, {
-            profileData:action.payload
-          })
-         case 'UPDATE_PASSWORD':
-        return Object.assign({}, state, {
-            password:action.payload
-          })
-          case 'UPDATE_USERNAME':
-        return Object.assign({}, state, {
-            username:action.payload
-          })
-
+            return Object.assign({}, state, {
+                profileData: action.payload
+            })
+        case 'UPDATE_PASSWORD':
+            return Object.assign({}, state, {
+                password: action.payload
+            })
+        case 'UPDATE_USERNAME':
+            return Object.assign({}, state, {
+                username: action.payload
+            })
+        case 'POST_LOGIN':
+            return Object.assign({}, state, {
+                response: action.payload
+            })
+        case 'POST_SIGNUP':
+            return Object.assign({}, state, {
+                response: action.payload
+            })
         case 'UPDATE_NEW_USERNAME':
-        return Object.assign({}, state, {
-            new_username:action.payload
-          })
-         case 'UPDATE_NEW_PASSWORD':
-        return Object.assign({}, state, {
-         new_password:action.payload
-          })
+            return Object.assign({}, state, {
+                new_username: action.payload
+            })
+        case 'UPDATE_NEW_PASSWORD':
+            return Object.assign({}, state, {
+                new_password: action.payload
+            })
         case 'UPDATE_NEW_PASSWORD_CONFIRM':
-        return Object.assign({}, state, {
-            new_password_confirm:action.payload
-          })
-
+            return Object.assign({}, state, {
+                new_password_confirm: action.payload
+            })
         case 'QUERY_FRIEND':
-          return Object.assign({}, state, {
-              queryData:action.payload
+            return Object.assign({}, state, {
+                queryData: action.payload
             })
 
 

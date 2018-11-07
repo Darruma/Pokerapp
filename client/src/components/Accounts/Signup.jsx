@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '.../css/login.css'
 import { connect } from 'react-redux';
 import updateSignupAction from '.../actions/login'
-
+import postSignupAction from '.../actions/response'
 
 class Signup extends Component
 {
@@ -11,6 +11,7 @@ class Signup extends Component
      {
        return (
       <div className='login-container'>
+                
                 <form onSubmit={this.handleFormSubmit}>
                     <div className='username-container'>
                         <input className='input' onChange={ (e) => this.handleInputChange(e,'NEW_USERNAME')}placeholder="username"></input>
@@ -27,27 +28,11 @@ class Signup extends Component
                 </form>
         </div>
        )
-
-
     }
      handleFormSubmit = (e,type) =>
       {
        e.preventDefault();
-       fetch('/api/signup', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json ",
-        },
-        body: JSON.stringify(
-            {
-                username:this.props.new_username,
-                password:this.props.new_password
-            }
-        ),
-    })
-    .then(response => response.json()).then(response => {
-        console.log(response);
-    });
+       this.props.dispatch(postSignupAction('SIGNUP',this.props.username,this.props.password));
       }
     handleInputChange = (e,type) =>
      {
@@ -59,7 +44,8 @@ const mapStateToProps = (state) => {
     return {
         new_username:state.new_username,
         new_password:state.new_password,
-        new_password_confirm:state.new_password_confirm
+        new_password_confirm:state.new_password_confirm,
+        response:state.response
     }
 }
 export default connect(mapStateToProps)(Signup);

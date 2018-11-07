@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '.../css/login.css'
 import { connect } from 'react-redux';
 import updateLoginAction from '.../actions/login'
+import postLoginAction from '.../actions/response'
 class Login extends Component {
     render() {
         return (
@@ -24,21 +25,7 @@ class Login extends Component {
     handleFormSubmit = (e) =>
     {
        e.preventDefault();
-       fetch('/api/login', {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json ",
-        },
-        body: JSON.stringify(
-            {
-                username:this.props.username,
-                password:this.props.password
-            }
-        ),
-    })
-    .then(response => response.json()).then(response => {
-        console.log(response);
-    });
+       this.props.dispatch(postLoginAction('LOGIN',this.props.username,this.props.password))
     }
     handleInputChange = (e,type) =>
     {
@@ -51,7 +38,8 @@ class Login extends Component {
 const mapStateToProps = (state) => {
     return {
         username: state.username,
-        password:state.password
+        password:state.password,
+        respons:state.response
     }
 }
 export default connect(mapStateToProps)(Login);
