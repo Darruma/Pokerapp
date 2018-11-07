@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/login.css'
+import '.../css/login.css'
 import { connect } from 'react-redux';
 import updateLoginAction from '.../actions/login'
 class Login extends Component {

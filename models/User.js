@@ -42,6 +42,15 @@ var UserSchema = new mongoose.Schema({
 	friend_requests:{
 		type:Array,
 		default:[]
+	},
+	current_table:{
+		type:String,
+		default:''
+	},
+	tables:
+	{
+		type:Array,
+		default:[]
 	}
 });
 UserSchema.index({

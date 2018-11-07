@@ -38,3 +38,7 @@ app.get('*', (req, res) => {
 })
 io.on('connect', clientsEvents);
 
+function clientEvents()
+{
+}
+
