@@ -12,4 +12,4 @@ class UserInfo extends Component {
         )
     }
 }
-export default UserInfo
+export default UserInfo;

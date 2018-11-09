@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import friendRequestAction from '../actions/adduser'
 class AddFriend extends Component
 {
     render()
@@ -12,21 +12,7 @@ class AddFriend extends Component
     }
 
     handleClick = (e) => {
-        fetch('/api/profiles/sendfriendrequest', {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json ",
-          },
-          body: JSON.stringify(
-              {
-                 id:this.props.id
-              }
-          ),
-      }).then(
-          res => res.json()
-      ).then(
-        res => console.log(res)
-      )
+       this.props.dispatch(friendRequestAction(this.props.id))
       }
 
 }
