@@ -1,5 +1,6 @@
 import React , { Component } from 'react'
 import UserInfo from './UserInfo'
+import friendRequestResponseAction from '../actions/friend_request'
 class Request extends Component
 {
     render()
@@ -13,22 +14,7 @@ class Request extends Component
     }
     handleClick = (e,answer) =>
     {
-        fetch('/api/profiles/answerrequest', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json ",
-            },
-            body: JSON.stringify(
-                {
-                   answer:answer,
-                   id:this.props.id
-                }
-            ),
-        }).then(
-            res => res.json()
-        ).then(
-          res => console.log(res)
-        )
+        this.props.dispatch(friendRequestResponseAction(answer,this.props.id))   
     }
 }
 export default Request;

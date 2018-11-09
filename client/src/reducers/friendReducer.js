@@ -6,5 +6,15 @@ export default friendReducer = (state = initalState,action) => {
             return Object.assign({}, state, {
                 queryData: action.payload
             })
+        case 'ADD_USER':
+            return Object.assign({},state,{
+                response:action.payload
+            })
+        case 'FRIEND_REQUEST_RESPONSE':
+        {
+            return Object.assign({},state,{
+                response:action.payload
+            })
+        }
     }
 }
