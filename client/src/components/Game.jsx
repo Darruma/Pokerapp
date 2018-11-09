@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '.../css/poker.css'
+import '../css/poker.css'
 import Card from './Card'
 import Enemies from './Enemies'
 class Game extends Component {

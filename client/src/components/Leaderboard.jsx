@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import '.../css/leaderboard.css'
-import '.../App.css'
+import '../css/leaderboard.css'
+import '../App.css'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import updateLeaderboard from '.../actions/leaderboard'
+import updateLeaderboard from '../actions/leaderboard'
 class Leaderboard extends Component {
 
     render() {

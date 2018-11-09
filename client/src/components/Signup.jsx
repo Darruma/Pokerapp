@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import '.../css/login.css'
+import '../css/login.css'
 import { connect } from 'react-redux';
-import updateSignupAction from '.../actions/login'
-import postSignupAction from '.../actions/response'
+import updateSignupAction from '../actions/login'
+import postSignupAction from '../actions/response'
 
 class Signup extends Component
 {

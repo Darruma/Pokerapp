@@ -1,5 +1,5 @@
 import React , { Component } from 'react'
-import UserInfo from '../Search/UserInfo'
+import UserInfo from './UserInfo'
 class Request extends Component
 {
     render()

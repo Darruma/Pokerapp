@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import UserList from './UserList'
-import friendQueryAction from '.../actions/friend'
+import friendQueryAction from '../actions/friend'
 class Search extends Component
 {
   render()
