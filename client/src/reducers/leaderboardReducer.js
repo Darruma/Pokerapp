@@ -1,4 +1,5 @@
-export default leaderboardReducer = (state = initalState, action) =>
+import initalState from "./initalState";
+const leaderboardReducer = (state = initalState, action) =>
 {
     if (action.type == 'UPDATE_LEADERBOARD') {
         return Object.assign({}, state, {
@@ -7,3 +8,4 @@ export default leaderboardReducer = (state = initalState, action) =>
     }
     return state;
 }
+export default leaderboardReducer

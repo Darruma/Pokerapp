@@ -1,5 +1,4 @@
-export default initialState =
-{
+export default  {
     leaderboard: [],
     profileData: {
         username: '',

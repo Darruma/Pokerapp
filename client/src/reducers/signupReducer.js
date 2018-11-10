@@ -1,4 +1,5 @@
-export default signupReducer = (state = initalState, action) =>
+import initalState from "./initalState";
+const signupReducer = (state = initalState, action) =>
 {
     switch (action.type) {
         case 'POST_SIGNUP':
@@ -17,5 +18,8 @@ export default signupReducer = (state = initalState, action) =>
             return Object.assign({}, state, {
                 new_password_confirm: action.payload
             })
+        default:
+            return state
     }
 }
+export default signupReducer

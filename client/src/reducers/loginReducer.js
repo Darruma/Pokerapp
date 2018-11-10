@@ -1,4 +1,5 @@
-export default loginReducer = (state =initalState, action) => {
+import initalState from "./initalState";
+const loginReducer = (state =initalState, action) => {
     switch (action.type) {
         case 'UPDATE_PASSWORD':
             return Object.assign({}, state, {
@@ -12,5 +13,8 @@ export default loginReducer = (state =initalState, action) => {
             return Object.assign({}, state, {
                 response: action.payload
             })
+        default:
+            return state
     }
 }
+export default loginReducer

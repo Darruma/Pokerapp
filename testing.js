@@ -1,7 +1,6 @@
 const express = require('express');
 const express_session = require('express-session');
 const bodyParser = require('body-parser')
-const logError = (err) => console.log(err)
 const path = require('path');
 const app = express();
 const server = require('http').createServer(app);
