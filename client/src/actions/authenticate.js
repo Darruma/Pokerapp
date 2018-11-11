@@ -1,25 +1,25 @@
-const responseAction = (type, username, password) => {
+const authenticateAction = (type, uname, passwd) => {
     return (dispatch) => {
         fetch('api/' + type.toLowerCase(), {
             method: "POST",
             headers: {
-                "Content-Type": "application/json ",
+                'Accept': 'application/json',
+                "Content-Type": "application/json; charset=utf-8"
             },
             body: JSON.stringify(
                 {
-                    username,
-                    password
-                }
-            ),
+                    username:uname,
+                    password:passwd
+                })
         }).
             then(res => res.json()).
             then(res => dispatch(
                 {
-                    type: 'POST' + type,
+                    type: 'POST_' + type,
                     payload: res
                 }
             ))
     }
 }
 
-export default responseAction;
+export default authenticateAction;

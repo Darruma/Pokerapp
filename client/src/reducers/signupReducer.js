@@ -1,10 +1,15 @@
-import initalState from "./initalState";
-const signupReducer = (state = initalState, action) =>
+const initalState = {
+    new_username:'',
+    new_password:'',
+    new_password_confirm:'',
+    signup_response:{}
+}
+const signupReducer = (state=initalState, action) =>
 {
     switch (action.type) {
         case 'POST_SIGNUP':
             return Object.assign({}, state, {
-                response: action.payload
+                signup_response: action.payload
             })
         case 'UPDATE_NEW_USERNAME':
             return Object.assign({}, state, {

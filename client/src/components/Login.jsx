@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../css/login.css'
 import { connect } from 'react-redux';
 import updateLoginAction from '../actions/login'
-import postLoginAction from '../actions/response'
+import postLoginAction from '../actions/authenticate'
 class Login extends Component {
     render() {
         return (
@@ -29,7 +29,6 @@ class Login extends Component {
     }
     handleInputChange = (e,type) =>
     {
-
        this.props.dispatch(updateLoginAction(type,e.target.value));
     }
 
@@ -37,9 +36,9 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        username: state.username,
-        password:state.password,
-        respons:state.response
+        username: state.loginReducer.username,
+        password:state.loginReducer.password,
+        response:state.loginReducer.login_response
     }
 }
 export default connect(mapStateToProps)(Login);

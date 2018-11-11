@@ -1,5 +1,10 @@
-import initalState from "./initalState";
-const loginReducer = (state =initalState, action) => {
+const initalState =
+{
+    username:'',
+    password:'',
+    login_response:{}
+}
+const loginReducer = (state=initalState, action) => {
     switch (action.type) {
         case 'UPDATE_PASSWORD':
             return Object.assign({}, state, {
@@ -11,7 +16,7 @@ const loginReducer = (state =initalState, action) => {
             })
         case 'POST_LOGIN':
             return Object.assign({}, state, {
-                response: action.payload
+                login_response: action.payload
             })
         default:
             return state

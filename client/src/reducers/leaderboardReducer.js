@@ -1,5 +1,7 @@
-import initalState from "./initalState";
-const leaderboardReducer = (state = initalState, action) =>
+const initalState ={
+    leaderboard:[]
+}
+const leaderboardReducer = (state=initalState, action) =>
 {
     if (action.type == 'UPDATE_LEADERBOARD') {
         return Object.assign({}, state, {

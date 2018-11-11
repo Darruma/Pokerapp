@@ -23,10 +23,11 @@ io.use(sharedsession(session, {
     autoSave: true
 }));
 
-app.use(bodyParser.json())
+app.use(express.json())
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended:false
 }))
+
 app.use('/api', accounts);
 app.use('/api/profiles', profiles);
 app.use('/api', tables);

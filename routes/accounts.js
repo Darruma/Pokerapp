@@ -4,6 +4,7 @@ const User = require('../models/User');
 router.post('/login',(req, res) =>
    {
      const login_details = req.body;
+     console.log(req.body)
      User.find(
              {
                  username:login_details.username
@@ -57,6 +58,8 @@ router.post('/login',(req, res) =>
 router.post('/signup',(req,res) =>
  {
         const signup_details  = req.body;
+        console.log(req.body)
+       
         if(signup_details.username.length < 4)
         {
                 return res.json(

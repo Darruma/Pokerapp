@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../css/login.css'
 import { connect } from 'react-redux';
 import updateSignupAction from '../actions/login'
-import postSignupAction from '../actions/response'
+import postSignupAction from '../actions/authenticate'
 
 class Signup extends Component
 {
@@ -32,7 +32,8 @@ class Signup extends Component
      handleFormSubmit = (e,type) =>
       {
        e.preventDefault();
-       this.props.dispatch(postSignupAction('SIGNUP',this.props.username,this.props.password));
+      
+       this.props.dispatch(postSignupAction('SIGNUP',this.props.new_username,this.props.new_password));
       }
     handleInputChange = (e,type) =>
      {
@@ -42,10 +43,10 @@ class Signup extends Component
 
 const mapStateToProps = (state) => {
     return {
-        new_username:state.new_username,
-        new_password:state.new_password,
-        new_password_confirm:state.new_password_confirm,
-        response:state.response
+        new_username:state.signupReducer.new_username,
+        new_password:state.signupReducer.new_password,
+        new_password_confirm:state.signupReducer.new_password_confirm,
+        response:state.signupReducer.signup_response
     }
 }
 export default connect(mapStateToProps)(Signup);
