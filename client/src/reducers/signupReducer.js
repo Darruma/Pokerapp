@@ -1,12 +1,16 @@
 const initalState = {
-    new_username:'',
-    new_password:'',
-    new_password_confirm:'',
-    signup_response:{}
+    new_username: '',
+    new_password: '',
+    new_password_confirm: '',
+    signup_response: {},
+    modal_active: false
 }
-const signupReducer = (state=initalState, action) =>
-{
+const signupReducer = (state = initalState, action) => {
     switch (action.type) {
+        case 'CHANGE_MODAL_SIGNUP':
+            return Object.assign({}, state, {
+                modal_active: action.payload
+            })
         case 'POST_SIGNUP':
             return Object.assign({}, state, {
                 signup_response: action.payload

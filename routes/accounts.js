@@ -124,7 +124,7 @@ router.get('/leaderboard' ,(req ,res) =>
         let i = 0;
 
         currentUser = users[0];
-        while(currentUser != null && i < 5)
+        while(currentUser != null && i < 10)
         {
             leaderboardData.push(
                     {
