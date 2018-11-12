@@ -6,12 +6,15 @@
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-minimal-pie-chart": "^3.3.0",
+    "react-modal": "^3.6.1",
     "react-redux": "^5.0.7",
+    "react-reveal": "^1.2.2",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
     "recharts": "^1.1.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "socket.io-client": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,5 +31,12 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
 }

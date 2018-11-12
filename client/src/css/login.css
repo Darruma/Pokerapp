@@ -43,8 +43,23 @@
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 100px;
 }
 .login-button:hover
 {
     opacity: 0.6;
+}
+.modal
+{
+   width: 30%;
+   height: 30%;
+   position: absolute;
+   top: 35%;
+   left:37%;
+   text-align: center;
+}
+.modal-text
+{
+    font-weight: bold;
+    padding-top: 30px;
 }

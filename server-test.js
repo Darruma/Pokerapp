@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const path = require('path')
 
 
 app.get('/api/leaderboard', (req, res) => {
@@ -49,7 +49,7 @@ app.get('/api/profile/:username', (req, res) => {
                     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Mao_Zedong_1963_%28cropped%29.jpg/220px-Mao_Zedong_1963_%28cropped%29.jpg'
                 }
             ],
-            posts: [{ title: 'test', content: 'test' }, { title: 'test', content: 'test' }
+            posts: [{ title: 'anime', content: 'if you dont like tesla you are a pedo' }, { title: 'test', content: 'test' }
                 , { title: 'asdosdkd', content: 'sdklsakdksdklsd' }, { title: 'yah', content: 'yeet' }, { title: 'marvel movies are great', content: 'so is rick and morty' },
             { title: 'test', content: 'test' },
             { title: 'George Bush', content: 'Likes fornite' }]
@@ -58,5 +58,8 @@ app.get('/api/profile/:username', (req, res) => {
 });
 
 const port = process.env.PORT || 3005;
-app.use('/',express.static('client/build'));
+app.use(express.static('client/build'));
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'client/build/index.html'));
+  });
 app.listen(port, () => console.log(`Listening on port ${port}`));

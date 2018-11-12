@@ -41,7 +41,7 @@ class Leaderboard extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        leaderboard: state.leaderboard
+        leaderboard: state.leaderboardReducer.leaderboard
     }
 }
 

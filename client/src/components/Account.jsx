@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import User from './User'
 import Posts from './Posts'
 import Statistics from './Statistics';
-import getProfileAction from '../actions/profile'
+import getMyProfileAction from '../actions/account'
 import { connect } from 'react-redux';
 class Account extends Component {
     render() {
         return (
-            <div> <div className='Profile'>
+            <div> 
+                <div className='Profile'>
                 <User image={this.props.profileData.image} name={'You'} bio={this.props.profileData.bio} friends={this.props.profileData.friends}>
                 </User>
                 <div className='main'>
@@ -21,7 +22,11 @@ class Account extends Component {
         )
     }
     componentDidMount() {
-        this.props.dispatch(getProfileAction(this.props.match.params.userId));
+        this.props.dispatch(getMyProfileAction(this.props.match.params.userId));
+        if(!this.props.profileData.loggedIn)
+        {
+            this.history.push('/login');
+        }
 
     }
 

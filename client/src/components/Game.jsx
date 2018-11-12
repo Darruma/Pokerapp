@@ -11,8 +11,6 @@ class Game extends Component {
                     <Enemies></Enemies>
                     <div className='poker-table'>
                         <div className='board-cards playingCards table'>
-
-
                             <Card suit='diams' rank='q' ></Card>
                             <Card suit='diams' rank='q' ></Card>
                             <Card suit='diams' rank='q' ></Card>
@@ -27,8 +25,6 @@ class Game extends Component {
                             <button className='poker-button'>Raise</button>
                         </div>
                     </div>
-
-
 
                 </div>
             </div>

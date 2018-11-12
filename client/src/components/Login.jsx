@@ -2,8 +2,14 @@ import React, { Component } from 'react'
 import '../css/login.css'
 import { connect } from 'react-redux';
 import updateLoginAction from '../actions/login'
+import { Redirect } from 'react-router-dom'
+import postLoginAction from '../actions/authenticate'
 class Login extends Component {
     render() {
+        if(this.props.response.success)
+        {
+            return(<Redirect to={'/account'}></Redirect>)
+        }
         return (
             <div className='login-container'>
                 <form onSubmit={this.handleFormSubmit}>
@@ -15,21 +21,21 @@ class Login extends Component {
                     <input className='input' onChange={ (e) => this.handleInputChange(e,'PASSWORD')} type='password' placeholder="password"></input>
                     </div>
                     <div className='login-button-container'>
-                    <button className='login-button'> Login</button>
+                    <button className='login-button'>Login</button>
                         </div>
                 </form>
             </div>
         )
     }
-    handleFormSubmit = (e) => 
+    
+    handleFormSubmit = (e) =>
     {
        e.preventDefault();
-       console.log(this.props.username);
-       console.log(this.props.password);
+       this.props.dispatch(postLoginAction('LOGIN',this.props.username,this.props.password))
+      
     }
     handleInputChange = (e,type) =>
     {
-      
        this.props.dispatch(updateLoginAction(type,e.target.value));
     }
 
@@ -37,8 +43,9 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        username: state.username,
-        password:state.password
+        username: state.loginReducer.username,
+        password:state.loginReducer.password,
+        response:state.loginReducer.login_response
     }
 }
 export default connect(mapStateToProps)(Login);
