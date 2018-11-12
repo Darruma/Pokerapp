@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"nodemon server.js\" \" cd client && npm run start\"",
-    "start":"nodemon server.js",
-    "heroku-postbuild":"cd client && npm run build"
+    "start":"nodemon server.js"
   },
   "author": "Darruma",
   "license": "ISC",
