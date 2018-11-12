@@ -1,5 +1,5 @@
 const initalState= {
-    queryData:{},
+    queryData:[],
     friend_response:{},
 }
 const friendReducer = (state=initalState , action) => {

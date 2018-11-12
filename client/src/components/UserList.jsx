@@ -5,12 +5,12 @@ class UserList extends Component {
     return (<div className='user-list-container'>
       {this.props.userData.map(element => {
         return (
-          <UserInfo profilePicture={element.image} bio={element.bio} username={element.name} >
+          <UserInfo profilePicture={element.image} id={element.id} username={element.username} >
           </UserInfo>
         )
       })}
     </div>)
   }
-  
+
 }
 export default UserList;

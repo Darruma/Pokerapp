@@ -8,7 +8,7 @@ class Search extends Component {
     return (<div className='App flex-column search-container'>
 
       <input className='search-bar' onChange={this.handleChange} maxLength={20}></input>
-      <UserList userData={[{bio:'hello',name:'jesus',image:'https://t6.rbxcdn.com/2e14343c5e907f7300968333d4884891'}]}> </UserList>
+      <UserList userData={this.props.queryData}> </UserList>
     </div>)
   }
 

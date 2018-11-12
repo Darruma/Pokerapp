@@ -13,11 +13,9 @@ function notLoggedIn(req,res,next){
   next();
 }
 router.get('/search/:username' ,(req,res) =>{
+  console.log('Searching')
   User.find({
-    $text:
-    {
-      $search:req.params.username
-    }
+   "username":{ $regex: new RegExp(req.params.username), $options: 'i'}
   }).exec((err,users) =>
   {
     if(err)
@@ -31,7 +29,7 @@ router.get('/search/:username' ,(req,res) =>{
     {
       return res.json(
         {
-          success:'False',
+          success:false,
           message:'No results for ' + req.params.username
         }
       )

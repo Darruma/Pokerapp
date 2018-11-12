@@ -16,6 +16,15 @@ router.get('/tables', (req, res) => {
                     }
                 )
             }
+            if(tables.length == 0)
+            {
+                return res.json(
+                    {
+                        success:false,
+                        message:'No games'
+                    }
+                )
+            }
             if (!req.session.signedIn) {
                 return res.json(
                     {
@@ -27,7 +36,10 @@ router.get('/tables', (req, res) => {
             return res.json(
                 {
                     success: true,
-                    payload: tables
+                    payload: tables.map(element =>
+                        {
+                            return element.lobbyData
+                        })
                 }
             );
 
