@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const db = mongoose.createConnection('mongodb://localhost/users');
+const db = mongoose.createConnection(process.env.MONGODB_URI);
 var UserSchema = new mongoose.Schema({
 	username: {
 		type: String,

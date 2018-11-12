@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const db = mongoose.createConnection('mongodb://localhost/pokerdb');
+const db = mongoose.createConnection(process.env.MONGODB_URI);
 
 var DeckSchema = new mongoose.Schema({
 

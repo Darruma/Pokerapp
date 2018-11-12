@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const db = mongoose.createConnection('mongodb://localhost/pokerdb');
+const db = mongoose.createConnection(process.env.MONGODB_URI);
 const User = require('./User');
 const Table = require('./Table')
 var PlayerSchema = new mongoose.Schema({
@@ -23,6 +23,11 @@ var PlayerSchema = new mongoose.Schema({
   {
     type:Boolean,
     default:true
+  },
+  balance:
+  {
+    type:Number,
+    default:500
   }
 
 });
@@ -43,6 +48,10 @@ PlayerSchema.methods.joinTable = function (tableId) {
       {
         table.players.push(this);
         table.save();
+        return {
+          success:true,
+          message:'Table joined'
+        }
       }
     })
 }
@@ -50,7 +59,13 @@ PlayerSchema.methods.bet = function(amount)
 {
   Table.findById(tableId,(err,table)=>
   {
+    if(amount > this.balance || amount < 0)
+    {
+      return {
+        success:false,
+        message:'Invalid Amount'
+      }
+    }
   })
 }
-
 module.exports = db.model("Player", PlayerSchema, "PokerData");
