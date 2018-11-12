@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import friendRequestAction from '../actions/adduser'
+import addUserAction from '../actions/adduser'
 class AddFriend extends Component
 {
     render()
@@ -12,7 +12,7 @@ class AddFriend extends Component
     }
 
     handleClick = (e) => {
-       this.props.dispatch(friendRequestAction(this.props.id))
+       this.props.dispatch(addUserAction(this.props.id))
       }
 
 }

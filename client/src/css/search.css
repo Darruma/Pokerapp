@@ -1,0 +1,56 @@
+.search-container
+{
+    height: 100vh;
+}
+
+.search-bar
+{
+    position: absolute;
+    top:30%;
+    width:20em;
+    font-size: 20px;
+    border-radius: 1em;
+    outline:none;
+    padding: 10px;
+}
+.user-list-container
+{
+    position: absolute;
+    top:35%;
+}
+.name-text
+{
+    font-size: 25px;
+    font-weight: bold;
+
+}
+.search-info
+{
+    width: 25em;
+    height:5em;
+    justify-content: baseline
+}
+
+.image-200
+{
+width: 100px;
+height: 100px;
+}
+.user-container
+{
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+}
+
+.user-image-container
+{
+    width:100px;
+    height: 100px;
+    padding-right: 40px;
+}
+.user-info-container
+{
+display: flex;
+flex-direction: column
+}

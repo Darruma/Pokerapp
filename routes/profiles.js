@@ -111,7 +111,6 @@ router.post('/sendfriendrequest' ,notLoggedIn,(req,res) =>
   })
 })
 
-
 router.get('/getfriendrequests',notLoggedIn,(req,res) =>{
 
   User.findById(req.session.user_id,(err,user) =>{
@@ -131,4 +130,6 @@ router.get('/getfriendrequests',notLoggedIn,(req,res) =>{
       })
   })
 })
+
+
 module.exports = router;

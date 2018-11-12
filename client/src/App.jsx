@@ -14,6 +14,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware,compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer'
+import Search from './components/Search';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
@@ -34,6 +35,7 @@ class App extends Component {
                                 <Route path='/leaderboard' component={Leaderboard}></Route>
                                 <Route path='/game' component={Game}> </Route>
                                 <Route path='/account' component={Account}> </Route>
+                                <Route path='/search' component={Search}></Route>
                                 
                             </Switch>
                         </div>

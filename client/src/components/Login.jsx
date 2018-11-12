@@ -2,9 +2,14 @@ import React, { Component } from 'react'
 import '../css/login.css'
 import { connect } from 'react-redux';
 import updateLoginAction from '../actions/login'
+import { Redirect } from 'react-router-dom'
 import postLoginAction from '../actions/authenticate'
 class Login extends Component {
     render() {
+        if(this.props.response.success)
+        {
+            return(<Redirect to={'/account'}></Redirect>)
+        }
         return (
             <div className='login-container'>
                 <form onSubmit={this.handleFormSubmit}>
@@ -22,10 +27,12 @@ class Login extends Component {
             </div>
         )
     }
+    
     handleFormSubmit = (e) =>
     {
        e.preventDefault();
        this.props.dispatch(postLoginAction('LOGIN',this.props.username,this.props.password))
+      
     }
     handleInputChange = (e,type) =>
     {

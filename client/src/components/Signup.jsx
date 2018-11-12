@@ -2,16 +2,21 @@ import React, { Component } from 'react'
 import '../css/login.css'
 import { connect } from 'react-redux';
 import updateSignupAction from '../actions/login'
+import { Redirect } from 'react-router-dom'
 import postSignupAction from '../actions/authenticate'
 import changeModalAction from '../actions/modal'
 import Modal from 'react-modal'
 class Signup extends Component {
     render() {
+        if(this.props.response.success)
+        {
+            return(<Redirect to={'/login'}></Redirect>)
+        }
         return (
             <div className='login-container'>
                 <Modal appElement={document.getElementById('root')} className='modal' isOpen={this.props.modal_active}>
                     <p className='modal-text'>{this.props.response.message}</p>
-                    <button onClick={(e) => { this.props.dispatch(changeModalAction(false)) }}>Exit</button>
+                    <button onClick={(e) => { this.props.dispatch(changeModalAction(false,'SIGNUP')) }}>Exit</button>
                 </Modal>
                 <form onSubmit={this.handleFormSubmit}>
                     <div className='username-container'>
@@ -32,11 +37,9 @@ class Signup extends Component {
     }
     handleFormSubmit = (e, type) => {
         e.preventDefault();
-        this.props.dispatch(postSignupAction('SIGNUP', this.props.new_username, this.props.new_password));
-        if (this.props.response.success) {
-            this.history.push('/login');
-        }
-        this.props.dispatch(changeModalAction(true));
+        this.props.dispatch(postSignupAction('SIGNUP', this.props.new_username, this.props.new_password))
+        this.props.dispatch(changeModalAction(true,'SIGNUP'));
+     
     }
     handleInputChange = (e, type) => {
         this.props.dispatch(updateSignupAction(type, e.target.value));
