@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const app = express();
 const server = require('http').createServer(app);
-server.listen(3005, () => {
+server.listen(process.env.PORT, () => {
     console.log('HTTPS Server running on port 3005');
 });
 const io = require('socket.io').listen(server)
