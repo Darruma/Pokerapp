@@ -31,14 +31,16 @@ app.use(bodyParser.urlencoded({
 app.use('/api', accounts);
 app.use('/api/profiles', profiles);
 app.use('/api', tables);
-app.use('/images', express.static(path.join(__dirname, '/client/images/')));
-app.use('/', express.static(path.join(__dirname, '/client/build')))
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/client/build/index.html'));
-})
 io.on('connect', clientsEvents);
 
 function clientsEvents()
 {
 }
 
+
+// add messaging with socket.io
+app.use('/images', express.static(path.join(__dirname, '/client/images/')));
+app.use('/', express.static(path.join(__dirname, '/client/build')))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/build/index.html'));
+})
