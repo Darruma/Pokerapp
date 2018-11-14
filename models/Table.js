@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 const db = mongoose.createConnection(process.env.MONGODB_URI);
-import Deck from './Deck'
+const  Deck = require('./Deck')
 var TableSchema = new mongoose.Schema({
     players:
     {
