@@ -3,29 +3,36 @@ const router = express.Router();
 const User = require('../models/User');
 var jac_matrix = {}
 
-// User.find((err, users) => {
-//   jac_matrix = jaccard_matrix(users.map(el => el.id));
-// });
+User.find((err, users) => {
+  jac_matrix = jaccard_matrix(users.map(el => el.id));
+});
 console.log(jac_matrix)
 function jaccard(a, b) {
   if (a.friends.length == 0 || b.friends.length == 0) {
     return 0
   }
-  a_friends = new Set(a.friends);
-  b_friends = new Set(b.friends);
-  numerator = new Set([...a_friends].filter(x => b_friends.has(x))).length;
-  denominator = new Set([...a, ...b]).length;
-  return numerator / denominator;
+  User.findById(a, (err, user1) => {
+    User.findById(b, (err, user2) => {
+      a_friends = new Set(user1.friends);
+      b_friends = new Set(user2.friends);
+      numerator = new Set([...a_friends].filter(x => b_friends.has(x))).length;
+      denominator = new Set([...a, ...b]).length;
+      return numerator / denominator;
+    })
+  })
+
 }
 
 function jaccard_matrix(users) {
   grid = {}
   for (var i = 0; i < users.length; i++) {
     for (var j = 0; j < users.length; j++) {
-      var user1 = User.findById(users[i]);
-      var user2 = User.findById(users[j]);
-      var score = jaccard(user1, user2);
-      grid[users[i]][users[j]] = score;
+      User.findById(users[i], (err, user1) => {
+        User.findById(users[j], (err, user2) => {
+          var score = jaccard(user1, user2);
+          grid[users[i]][users[j]] = score;
+        });
+      });
     }
   }
   return grid;
