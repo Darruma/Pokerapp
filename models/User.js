@@ -78,6 +78,10 @@ UserSchema.methods.validPassword = function (password) {
 UserSchema.methods.getFriends = function()
 {
 	var friendData = [];
+	if(this.friends.length == 0)
+	{
+		return [];
+	}
 	for(var f in this.friends)
 	{
 		this.model('User').findById(f,(err,friend)=>
