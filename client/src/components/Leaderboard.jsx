@@ -16,7 +16,7 @@ class Leaderboard extends Component {
                         return (
                             <Link to={'/profile/' + element.username} className='profile-link'>
                                 <li className='user-stats'>
-                                    <img className='image' src={element.profilePicture} />
+                                    <img className='image' src={'/images/' + element.profilePicture} />
                                     <div className='username'>
                                         {element.username}
                                     </div>
