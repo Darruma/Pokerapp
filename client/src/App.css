@@ -42,3 +42,7 @@
   text-decoration: none;
   color: black;
 }
+.selected
+{
+  border: solid white 2px
+}
