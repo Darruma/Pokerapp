@@ -75,5 +75,20 @@ UserSchema.methods.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
 };
 
-UserSchema.methods.getFriends = f
+UserSchema.methods.getFriends = function()
+{
+	var friendData = [];
+	for(var f in friends)
+	{
+		this.model('User').findById(f,(err,friend)=>
+		{
+			
+			friendData.push({
+				friendName:friend.username,
+				image:friend.profile_pic
+			})
+		});
+	}
+	return friendData;
+}
 module.exports = db.model("User", UserSchema, "UserData");
