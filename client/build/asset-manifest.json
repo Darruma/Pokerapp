@@ -1,16 +1,16 @@
 {
-  "main.css": "/static/css/main.413d3cc4.chunk.css",
-  "main.js": "/static/js/main.55629fca.chunk.js",
-  "main.js.map": "/static/js/main.55629fca.chunk.js.map",
-  "static/js/1.9f3d3585.chunk.js": "/static/js/1.9f3d3585.chunk.js",
-  "static/js/1.9f3d3585.chunk.js.map": "/static/js/1.9f3d3585.chunk.js.map",
+  "main.css": "/static/css/main.7cbb37fa.chunk.css",
+  "main.js": "/static/js/main.4e7ede14.chunk.js",
+  "main.js.map": "/static/js/main.4e7ede14.chunk.js.map",
+  "static/js/1.167d0825.chunk.js": "/static/js/1.167d0825.chunk.js",
+  "static/js/1.167d0825.chunk.js.map": "/static/js/1.167d0825.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
   "static/media/cards.css": "/static/media/KC.44311f67.gif",
   "static/media/poker.png": "/static/media/poker.d649605d.png",
   "static/media/leaderboard.png": "/static/media/leaderboard.3bb64250.png",
-  "static/css/main.413d3cc4.chunk.css.map": "/static/css/main.413d3cc4.chunk.css.map",
+  "static/css/main.7cbb37fa.chunk.css.map": "/static/css/main.7cbb37fa.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.8778e38743034bceb8288938b101900d.js": "/precache-manifest.8778e38743034bceb8288938b101900d.js",
+  "precache-manifest.bd4cdec09012e307b0bea3ea69d38eed.js": "/precache-manifest.bd4cdec09012e307b0bea3ea69d38eed.js",
   "service-worker.js": "/service-worker.js"
 }

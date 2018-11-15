@@ -1,18 +1,17 @@
 const initalState = {
-    page:'home'
-},
+    page: 'home'
+}
 
-const pageReducer = (state, action)
+const pageReducer = (state=initalState, action) =>
+
 {
-    if(action.type=='CHANGE_PAGE')
-    {
-        return Object.assign({},state,
+    if (action.type == 'CHANGE_PAGE') {
+        return Object.assign({}, state,
             {
-                page:action.payload
+                page: action.payload
             })
     }
-    else
-    {
+    else {
         return state
     }
 }
