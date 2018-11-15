@@ -1,12 +1,8 @@
 const page = (page) =>
 {
-    return (dispatch) =>
-    {
-        dispatch(
-            {
-                type:'CHANGE_PAGE',
-                payload:'page'
-            }
-        )
-    }
+    return({
+        type:'CHANGE_PAGE',
+        payload:page
+    })
 }
+export default page;

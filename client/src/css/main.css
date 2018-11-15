@@ -19,5 +19,11 @@
 {
  width: 45px;
  height: 45px;
+ border: solid white 2px;
+ border-radius: 5px;
+}
+.unselected
+{
+    border:none
 }
 

@@ -12,16 +12,16 @@ class Sidebar extends Component {
         return (
             <div className='App'>
                 <nav className='side-bar'>
-                    <Link className='link' to='/'><img className={'icon' + this.props.page == 'home' || 'selected' }  onClick={(e) => this.changePage('home')} src={home}></img></Link>
-                    <Link className='link' to='/leaderboard'><img className={'icon' + this.props.page == 'leaderboard' || 'selected' } onClick={e => this.changePage('leaderboard')} src={leaderboard}></img></Link>
-                    <Link className='link' to='/game'><img className={'icon' + this.props.page == 'game' || 'selected' } onClick={e => this.changePage('game')} src={poker}></img></Link>
+                    <Link className='link' to='/'><img className={'icon ' + (this.props.page == 'home' || 'unselected') }  onClick={(e) => this.changePage(e,'home')} src={home}></img></Link>
+                    <Link className='link' to='/leaderboard'><img className={'icon ' + (this.props.page == 'leaderboard' || 'unselected') } onClick={e => this.changePage(e,'leaderboard')} src={leaderboard}></img></Link>
+                    <Link className='link' to='/game'><img className={'icon ' + (this.props.page == 'game' || 'unselected') } onClick={e => this.changePage(e,'game')} src={poker}></img></Link>
                 </nav>
             </div>
         )
     }
-    changePage = (page) =>
+    changePage = (e,page) =>
     {
-        this.props.dispatch(changePageAction('page'))
+        this.props.dispatch(changePageAction(page))
     }
 
 
