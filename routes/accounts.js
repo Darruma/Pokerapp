@@ -129,7 +129,8 @@ router.get('/leaderboard' ,(req ,res) =>
             leaderboardData.push(
                     {
                         username:currentUser.username,
-                        points:currentUser.points
+                        points:currentUser.points,
+                        profilePicture:currentUser.profile_pic
                     }
             )
             i = i + 1
