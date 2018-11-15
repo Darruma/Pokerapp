@@ -28,6 +28,8 @@ function jaccard_matrix(users) {
         User.findById(users[j], (err, user2) => {
           var score = jaccard(user1, user2);
           grid[users[i]][users[j]] = score;
+
+
         });
       });
     }
@@ -42,8 +44,60 @@ function most_similar(user, grid) {
     var b_val = Object.values(b)[0];
     return (a_val - b_val);
   }).pop()
+  return userData;
 
 }
+
+router.get('/:username', (req, res) => {
+ 
+  User.findOne(
+    {
+      username:req.params.username
+    },
+    (err,user) =>
+    {
+      if(err)
+      {
+        return res.json(
+          {
+            success:false,
+            message:'SERVER ERROR'
+          }
+        )
+      }
+      if(!user)
+      {
+        return res.json(
+          {
+            success:false,
+            message:'No user found with that name'
+          }
+        )
+      }
+      else
+      {
+        
+        return res.json(
+          {
+            success:true,
+            payload:
+            {
+              image:user.profile_pic,
+              friends:user.getFriends(),
+              priceData:user.priceData,
+              posts:user.posts,
+              wins:user.wins,
+              losses:user.losses,
+              draws:0,
+              bio:user.bio
+            }
+          }
+        )
+      }
+    }
+  )
+
+})
 router.get('/recommended_friends', notLoggedIn, (req, res) => {
   var currentUserId = req.session.id;
   return res.json(

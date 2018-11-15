@@ -31,7 +31,7 @@ class Profile extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        profileData: state.profileData
+        profileData: state.profileReducer.profileData
     }
 }
 

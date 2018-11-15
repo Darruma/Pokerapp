@@ -2,7 +2,7 @@
 const getProfileAction = (username) => {
     return (dispatch) =>
     {
-    fetch('/api/profile/'+username ).then(res => res.json())
+    fetch('/api/profiles/'+username ).then(res => res.json())
         .then((data) => {
             dispatch(
                 {

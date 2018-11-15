@@ -51,6 +51,16 @@ var UserSchema = new mongoose.Schema({
 	{
 		type:Array,
 		default:[]
+	},
+	priceData:
+	{
+		type:Array,
+		default:[]
+	},
+	bio:
+	{
+		type:'String',
+		default:'To be or not to be that is the question'
 	}
 });
 UserSchema.index({
@@ -64,4 +74,6 @@ UserSchema.methods.generateHash = function (password) {
 UserSchema.methods.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
 };
+
+UserSchema.methods.getFriends = f
 module.exports = db.model("User", UserSchema, "UserData");
