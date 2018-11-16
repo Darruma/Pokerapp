@@ -1,33 +1,38 @@
 var mongoose = require('mongoose');
 const db = mongoose.createConnection(process.env.MONGODB_URI);
-const  Deck = require('./Deck')
+const Deck = require('./Deck')
 var TableSchema = new mongoose.Schema({
     players:
     {
         type: Array,
         default: []
     },
-    deck:
+    board:
     {
         type: String,
         default: ''
     },
+    boards:
+    {
+        type:Array,
+        default:[]
+    },
     buyin:
     {
-        type:Number,
-        default:500
+        type: Number,
+        default: 500
     }
+
 })
 TableSchema.methods.startGame = function () {
 
 }
 
-TableSchema.methods.lobbyData = function()
-{
+TableSchema.methods.lobbyData = function () {
     return (
         {
-            playerAmount:this.players.length,
-            blinds:this.buyin
+            playerAmount: this.players.length,
+            blinds: this.buyin
         }
     )
 }
@@ -35,19 +40,22 @@ TableSchema.methods.getPlayers = function () {
     return this.players.map(element => {
         return ({
             name: element.username,
-            image:element.profilePicture,
+            image: element.profilePicture,
             user: element.user,
         })
     })
 }
 TableSchema.methods.drawCards = function () {
-    Deck.findById(deck, (err, deck) => {
-        for (var player in players) {
-            if (player.isPlaying) {
-                player.hand.push(deck.pop());
+    Board.findById(this.board, (err, board) => {
+        Deck.findById(board.deck, (err, deck) => {
+            for (var p in players) {
+                Player.findById(p, (err, player) => {
+                    if (player.isPlaying) {
+                        player.hand.push(deck.pop());
+                    }
+                })
             }
-        }
-
+        })
     })
 }
 
