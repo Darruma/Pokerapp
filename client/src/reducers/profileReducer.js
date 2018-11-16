@@ -1,7 +1,8 @@
 const initialState = {
     profileData:{},
     statistics:{},
-    myData:{}
+    myData:{} 
+    
 }
 const profileReducer = (state=initialState, action) => {
     switch (action.type) {
