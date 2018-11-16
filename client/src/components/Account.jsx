@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import User from './User'
 import Posts from './Posts'
 import Statistics from './Statistics';
+import { Redirect } from 'react-router-dom'
 import getUserAction from '../actions/user'
 import { connect } from 'react-redux';
 class Account extends Component {
     render() {
+        if(!this.props.profileData.loggedIn)
+        {
+            return(<Redirect to='/login'></Redirect>)
+        }
         return (
             <div> 
                 <div className='Profile'>
@@ -23,10 +28,6 @@ class Account extends Component {
     }
     componentDidMount() {
         this.props.dispatch(getUserAction());
-        if(!this.props.profileData.loggedIn)
-        {
-            this.history.push('/login');
-        }
 
     }
 

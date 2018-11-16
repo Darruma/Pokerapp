@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../css/profile.css'
 import '../App.css'
-import getProfileAction from '../actions/profile'
+import getProfileAction from '../actvvions/profile'
 import { connect } from 'react-redux';
 import User from './User'
 import Posts from './Posts'
@@ -23,6 +23,7 @@ class Profile extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props);
         this.props.dispatch(getProfileAction(this.props.match.params.userId));
 
     }

@@ -1,30 +1,37 @@
 const initialState = {
-    profileData:{},
-    statistics:{},
-    myData:{
-        image:'',
-        posts:[],
-        priceData:[],
-        wins:0,
-        losses:0,
-        friends:[]
-    } 
+    profileData: {
+        image: '',
+        posts: [],
+        priceData: [],
+        wins: 0,
+        losses: 0,
+        friends: []
+    },
+    statistics: {},
+    myData: {
+        image: '',
+        posts: [],
+        priceData: [],
+        wins: 0,
+        losses: 0,
+        friends: []
+    }
 
 }
-const profileReducer = (state=initialState, action) => {
+const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_MY_DATA':
-            return Object.assign({},state,{
-                myData:action.payload
+            return Object.assign({}, state, {
+                myData: action.payload
             })
-        case 'GET_PROFILE_DATA':
+        case 'GET_PROFILE':
             return Object.assign({}, state, {
                 profileData: action.payload
             })
         case 'GET_STATISTICS':
-            return Object.assign({},state,
+            return Object.assign({}, state,
                 {
-                statistics:action.payload
+                    statistics: action.payload
                 })
 
         default:

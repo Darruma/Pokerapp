@@ -2,7 +2,7 @@
 const getUserAction = () => {
     return (dispatch) =>
     {
-    fetch('/api/profiles/').then(res => res.json())
+    fetch('/api/profiles/me').then(res => res.json())
         .then((data) => {
             dispatch(
                 {
