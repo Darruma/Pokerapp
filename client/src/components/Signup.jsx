@@ -5,18 +5,18 @@ import updateSignupAction from '../actions/login'
 import { Redirect } from 'react-router-dom'
 import postSignupAction from '../actions/authenticate'
 import changeModalAction from '../actions/modal'
+import changeModalText from '../actions/modal_text'
 import Modal from 'react-modal'
 class Signup extends Component {
     render() {
-        if(this.props.response.success)
-        {
-            return(<Redirect to={'/login'}></Redirect>)
+        if (this.props.response.success) {
+            return (<Redirect to={'/login'}></Redirect>)
         }
         return (
             <div className='login-container'>
                 <Modal appElement={document.getElementById('root')} className='modal' isOpen={this.props.modal_active}>
-                    <p className='modal-text'>{this.props.response.message}</p>
-                    <button onClick={(e) => { this.props.dispatch(changeModalAction(false,'SIGNUP')) }}>Exit</button>
+                    <p className='modal-text'>{this.props.modal_message}</p>
+                    <button onClick={(e) => { this.props.dispatch(changeModalAction(false)) }}>Exit</button>
                 </Modal>
                 <form onSubmit={this.handleFormSubmit}>
                     <div className='username-container'>
@@ -37,9 +37,16 @@ class Signup extends Component {
     }
     handleFormSubmit = (e, type) => {
         e.preventDefault();
+        if (this.props.new_password !== this.props.new_password_confirm) {
+            this.props.dispatch(changeModalText("The passwords do not match, please enter them again"));
+            this.props.dispatch(changeModalAction(true));
+            return;
+        }
         this.props.dispatch(postSignupAction('SIGNUP', this.props.new_username, this.props.new_password))
-        this.props.dispatch(changeModalAction(true,'SIGNUP'));
-     
+        if (!this.props.response.success) {
+            this.props.dispatch(changeModalText(this.props.response.message));
+            this.props.dispatch(changeModalAction(true));
+        }
     }
     handleInputChange = (e, type) => {
         this.props.dispatch(updateSignupAction(type, e.target.value));
@@ -52,7 +59,8 @@ const mapStateToProps = (state) => {
         new_password: state.signupReducer.new_password,
         new_password_confirm: state.signupReducer.new_password_confirm,
         response: state.signupReducer.signup_response,
-        modal_active: state.signupReducer.modal_active
+        modal_active: state.signupReducer.modal_active,
+        modal_message: state.pageReducer.modal_message
     }
 }
 export default connect(mapStateToProps)(Signup);

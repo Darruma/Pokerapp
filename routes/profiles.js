@@ -39,13 +39,11 @@ function jaccard_matrix(users) {
 function most_similar(user, grid) {
   var userData = grid[user];
   userData.sort((a, b) => {
-
     var a_val = Object.values(a)[0];
     var b_val = Object.values(b)[0];
     return (a_val - b_val);
   }).pop()
   return userData;
-
 }
 
 router.get('/:username', (req, res) => {

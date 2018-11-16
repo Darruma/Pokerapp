@@ -1,6 +1,6 @@
-const changeModal = (value,type) => {
+const changeModal = (value) => {
     return({
-        type:'CHANGE_MODAL_' + type,
+        type:'CHANGE_MODAL_STATUS',
         payload:value
     })
 }

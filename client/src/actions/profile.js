@@ -7,7 +7,7 @@ const getProfileAction = (username) => {
             dispatch(
                 {
                     type: 'GET_PROFILE',
-                    payload: data
+                    payload: data.payload
                 }
             )
         }
