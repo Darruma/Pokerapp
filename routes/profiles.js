@@ -224,6 +224,4 @@ router.get('/getfriendrequests', notLoggedIn, (req, res) => {
 })
 
 
-
-
 module.exports = router;

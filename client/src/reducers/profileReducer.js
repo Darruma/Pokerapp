@@ -33,7 +33,6 @@ const profileReducer = (state = initialState, action) => {
                 {
                     statistics: action.payload
                 })
-
         default:
             return state
     }
