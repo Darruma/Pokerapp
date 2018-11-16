@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import User from './User'
 import Posts from './Posts'
 import Statistics from './Statistics';
-import getMyProfileAction from '../actions/account'
+import getUserAction from '../actions/user'
 import { connect } from 'react-redux';
 class Account extends Component {
     render() {
@@ -22,7 +22,7 @@ class Account extends Component {
         )
     }
     componentDidMount() {
-        this.props.dispatch(getMyProfileAction(this.props.match.params.userId));
+        this.props.dispatch(getUserAction());
         if(!this.props.profileData.loggedIn)
         {
             this.history.push('/login');
@@ -33,7 +33,7 @@ class Account extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        profileData: state.profileData
+        profileData: state.profileReducer.myData
     }
 }
 
