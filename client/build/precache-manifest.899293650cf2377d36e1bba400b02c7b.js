@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "59da7805f0b5f3d63378ad8559bce3b8",
-    "url": "/static/media/QD.59da7805.gif"
+    "revision": "8bcef36a3ccfc13adafc3d354e2bfd14",
+    "url": "/static/media/QS.8bcef36a.gif"
   },
   {
-    "revision": "658dd21eaf0b6ca4a8e6",
+    "revision": "0cd1507b6f3530ec079d",
     "url": "/static/css/main.6b0c1d14.chunk.css"
   },
   {
@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/static/media/leaderboard.3bb64250.png"
   },
   {
-    "revision": "1c54970fc9d08833b682c3d243d02142",
-    "url": "/static/media/JS.1c54970f.gif"
+    "revision": "345d4b58e85429b47fce2730cfb9b5e6",
+    "url": "/static/media/JH.345d4b58.gif"
   },
   {
     "revision": "d55f47650481b9d38ae41ef1655f30f0",
@@ -36,28 +36,28 @@ self.__precacheManifest = [
     "url": "/static/media/JC.cde8fef5.gif"
   },
   {
-    "revision": "658dd21eaf0b6ca4a8e6",
-    "url": "/static/js/main.658dd21e.chunk.js"
-  },
-  {
-    "revision": "345d4b58e85429b47fce2730cfb9b5e6",
-    "url": "/static/media/JH.345d4b58.gif"
-  },
-  {
-    "revision": "b6d6d0ee7fe4bb3a1eb87fd6c43d14d2",
-    "url": "/static/media/QC.b6d6d0ee.gif"
+    "revision": "0cd1507b6f3530ec079d",
+    "url": "/static/js/main.0cd1507b.chunk.js"
   },
   {
     "revision": "931438a28457198c5d902652d56574de",
     "url": "/static/media/QH.931438a2.gif"
   },
   {
-    "revision": "8bcef36a3ccfc13adafc3d354e2bfd14",
-    "url": "/static/media/QS.8bcef36a.gif"
+    "revision": "b6d6d0ee7fe4bb3a1eb87fd6c43d14d2",
+    "url": "/static/media/QC.b6d6d0ee.gif"
+  },
+  {
+    "revision": "1c54970fc9d08833b682c3d243d02142",
+    "url": "/static/media/JS.1c54970f.gif"
   },
   {
     "revision": "9865961f3a679ff39d46dfa7771d5544",
     "url": "/static/media/KH.9865961f.gif"
+  },
+  {
+    "revision": "59da7805f0b5f3d63378ad8559bce3b8",
+    "url": "/static/media/QD.59da7805.gif"
   },
   {
     "revision": "678e9fb786dd5aaf97ef4e3112953ff5",
@@ -72,7 +72,7 @@ self.__precacheManifest = [
     "url": "/static/media/KC.44311f67.gif"
   },
   {
-    "revision": "1f468d6453c12175c1f71186c0fb8bb4",
+    "revision": "78d9868eb272e66b89f5d5186eec6b1a",
     "url": "/index.html"
   }
 ];
