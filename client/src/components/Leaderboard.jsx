@@ -11,10 +11,10 @@ class Leaderboard extends Component {
         return (
             <div className='App'>
                 <ul className='leaderboard-container'>
-                    <h1>Leaderboard</h1>
-                    {this.props.leaderboard.map((element) => {
+                    <h1>Global Leaderboard</h1>
+                    {this.props.leaderboard.map((element,index) => {
                         return (
-                            <Link to={'/profile/' + element.username} className='profile-link'>
+                            <Link key={index} to={'/profile/' + element.username} className='profile-link'>
                                 <li className='user-stats'>
                                     <img className='image' src={'/images/' + element.profilePicture} />
                                     <div className='username'>

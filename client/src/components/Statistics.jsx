@@ -5,11 +5,11 @@ class Statistics extends Component {
     render() {
         return (<div className='statistics'>
             <div className='line-chart'>
-                <PriceChart data={this.props.priceData}></PriceChart>
+             {/* <PriceChart data={this.props.priceData}></PriceChart> */}
             </div>
 
             <div className='pie-chart'>
-                <PieChart wins={this.props.wins} losses={this.props.losses} draws={this.props.draws}></PieChart>
+                {/* <PieChart wins={this.props.wins} losses={this.props.losses} draws={this.props.draws}></PieChart> */}
             </div>
             <div className='tags'>
                 <p className='tag'>Wins <i className='green block'></i></p>

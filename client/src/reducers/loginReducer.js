@@ -1,11 +1,16 @@
 const initalState =
 {
-    username:'',
-    password:'',
-    login_response:{}
+    username: '',
+    password: '',
+    login_response: {}
 }
-const loginReducer = (state=initalState, action) => {
+const loginReducer = (state = initalState, action) => {
     switch (action.type) {
+
+        case 'POST_LOGIN':
+            return Object.assign({}, state, {
+                login_response: action.payload
+            })
         case 'UPDATE_PASSWORD':
             return Object.assign({}, state, {
                 password: action.payload
@@ -14,10 +19,7 @@ const loginReducer = (state=initalState, action) => {
             return Object.assign({}, state, {
                 username: action.payload
             })
-        case 'POST_LOGIN':
-            return Object.assign({}, state, {
-                login_response: action.payload
-            })
+
         default:
             return state
     }

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-const db = mongoose.createConnection(process.env.MONGODB_URI);
+const url = (process.env.MONGODB_URI) ? process.env.MONGODB_URI : 'mongodb://localhost/users'
+const db = mongoose.createConnection(url);
 const Deck = require('./Deck')
 var TableSchema = new mongoose.Schema({
     players:

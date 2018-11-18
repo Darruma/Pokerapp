@@ -1,4 +1,4 @@
-const addUserAction =(id) =>{
+const addUserAction =(user_id) =>{
     return (dispatch) =>{
         fetch('/api/profiles/sendfriendrequest', {
             method: "POST",
@@ -8,7 +8,7 @@ const addUserAction =(id) =>{
             },
             body: JSON.stringify(
                 {
-                   id:this.props.id
+                   id:user_id
                 }
             ),
         }).then(
@@ -23,3 +23,4 @@ const addUserAction =(id) =>{
 
 
 }
+export default addUserAction

@@ -6,7 +6,7 @@ const getUserAction = () => {
         .then((data) => {
             dispatch(
                 {
-                    type: 'GET_MY_PROFILE',
+                    type: 'GET_MY_DATA',
                     payload: data
                 }
             )

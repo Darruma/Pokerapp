@@ -1,11 +1,19 @@
 const initalState = {
     page: 'home',
-    modal_active:false,
-    modal_message:''
+    modal_active: false,
+    modal_message: '',
+    loggedIn: false
 }
 
 const pageReducer = (state = initalState, action) => {
     switch (action.type) {
+
+        case 'CHANGE_LOGIN':
+            return Object.assign({}, state,
+                {
+                    loggedIn: action.payload
+                })
+
         case 'CHANGE_PAGE':
             return Object.assign({}, state,
                 {

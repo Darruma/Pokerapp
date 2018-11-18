@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const db = mongoose.createConnection(process.env.MONGODB_URI);
+const url = (process.env.MONGODB_URI) ? process.env.MONGODB_URI : 'mongodb://localhost/users'
+const db = mongoose.createConnection(url);
 var UserSchema = new mongoose.Schema({
 	username: {
 		type: String,
@@ -75,16 +76,16 @@ UserSchema.methods.validPassword = function (password) {
         return bcrypt.compareSync(password, this.password);
 };
 
-UserSchema.methods.getFriends = function()
+UserSchema.methods.getFriends = function(amount)
 {
 	var friendData = [];
 	if(this.friends.length == 0)
 	{
 		return [];
 	}
-	for(var f in this.friends)
+	for(var i = 0;i < amount;i++)
 	{
-		this.model('User').findById(f,(err,friend)=>
+		this.model('User').findById(this.friends[i],(err,friend)=>
 		{
 			
 			friendData.push({
@@ -94,5 +95,9 @@ UserSchema.methods.getFriends = function()
 		});
 	}
 	return friendData;
+}
+UserSchema.methods.getMyFriends= function()
+{
+	return []
 }
 module.exports = db.model("User", UserSchema, "UserData");

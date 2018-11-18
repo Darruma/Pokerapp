@@ -46,48 +46,83 @@ function most_similar(user, grid) {
   return userData;
 }
 
-router.get('/:username', (req, res) => {
- 
-  User.findOne(
-    {
-      username:req.params.username
-    },
-    (err,user) =>
-    {
-      if(err)
+router.get('/me', (req, res) => {
+  if (!req.session.loggedIn) {
+    return res.json(
       {
-        return res.json(
-          {
-            success:false,
-            message:'SERVER ERROR'
-          }
-        )
+        success: false,
+        message: 'Not logged in'
       }
-      if(!user)
-      {
-        return res.json(
-          {
+    )
+  }
+  else {
+    User.findById(req.session.user_id, (err, user) => {
+        if(err)
+        {
+          return res.json({
             success:false,
-            message:'No user found with that name'
-          }
-        )
-      }
-      else
-      {
-        
+            message:'Server Error'
+          })
+        }
         return res.json(
           {
             success:true,
-            payload:
+            data:
             {
               image:user.profile_pic,
-              friends:user.getFriends(),
-              priceData:user.priceData,
-              posts:user.posts,
-              wins:user.wins,
-              losses:user.losses,
-              draws:0,
-              bio:user.bio
+              friends:user.getMyFriends(),
+              priceData: user.priceData,
+              posts: user.posts,
+              wins: user.wins,
+              losses: user.losses,
+              draws: 0,
+              bio: user.bio,
+            }
+          }
+        )
+    })
+  }
+})
+router.get('/:username', (req, res) => {
+
+  User.findOne(
+    {
+      username: req.params.username
+    },
+    (err, user) => {
+      if (err) {
+        return res.json(
+          {
+            success: false,
+            message: 'SERVER ERROR'
+          }
+        )
+      }
+      if (!user) {
+        return res.json(
+          {
+            success: false,
+            message: 'No user found with that name'
+          }
+        )
+      }
+      else {
+
+        return res.json(
+          {
+            success: true,
+            data:
+            {
+              image: user.profile_pic,
+              friends: user.getFriends(4),
+              priceData: user.priceData,
+              posts: user.posts,
+              wins: user.wins,
+              losses: user.losses,
+              draws: 0,
+              bio: user.bio,
+              loggedIn:true,
+              id:user._id
             }
           }
         )
@@ -97,7 +132,7 @@ router.get('/:username', (req, res) => {
 
 })
 router.get('/recommended_friends', notLoggedIn, (req, res) => {
-  var currentUserId = req.session.id;
+  var currentUserId = req.session.user_id;
   return res.json(
     {
       success: true,
@@ -116,7 +151,6 @@ function notLoggedIn(req, res, next) {
   next();
 }
 router.get('/search/:username', (req, res) => {
-  console.log('Searching')
   User.find({
     "username": { $regex: new RegExp(req.params.username), $options: 'i' }
   }).exec((err, users) => {

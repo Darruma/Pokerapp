@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../css/login.css'
 import { connect } from 'react-redux';
-import updateSignupAction from '../actions/login'
+import { updateLoginAction as updateSignupAction }  from '../actions/login'
 import { Redirect } from 'react-router-dom'
 import postSignupAction from '../actions/authenticate'
 import changeModalAction from '../actions/modal'
@@ -35,18 +35,21 @@ class Signup extends Component {
             </div>
         )
     }
-    handleFormSubmit = (e, type) => {
+    handleFormSubmit = (e) => {
         e.preventDefault();
         if (this.props.new_password !== this.props.new_password_confirm) {
             this.props.dispatch(changeModalText("The passwords do not match, please enter them again"));
             this.props.dispatch(changeModalAction(true));
             return;
         }
-        this.props.dispatch(postSignupAction('SIGNUP', this.props.new_username, this.props.new_password))
-        if (!this.props.response.success) {
-            this.props.dispatch(changeModalText(this.props.response.message));
-            this.props.dispatch(changeModalAction(true));
+        this.props.dispatch(postSignupAction('SIGNUP', this.props.new_username, this.props.new_password)).then(() => {
+            if (!this.props.response.success) {
+                this.props.dispatch(changeModalText(this.props.response.message));
+                this.props.dispatch(changeModalAction(true));
+            }
         }
+        )
+
     }
     handleInputChange = (e, type) => {
         this.props.dispatch(updateSignupAction(type, e.target.value));
@@ -59,7 +62,7 @@ const mapStateToProps = (state) => {
         new_password: state.signupReducer.new_password,
         new_password_confirm: state.signupReducer.new_password_confirm,
         response: state.signupReducer.signup_response,
-        modal_active: state.signupReducer.modal_active,
+        modal_active: state.pageReducer.modal_active,
         modal_message: state.pageReducer.modal_message
     }
 }

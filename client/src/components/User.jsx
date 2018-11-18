@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Friend from './Friend';
+import AddFriend from './AddFriend'
 class User extends Component {
     render() {
         return (<div className='profile-container'>
@@ -8,6 +9,7 @@ class User extends Component {
             </div>
             <p className='profile-username'>
                 {this.props.name}
+                <AddFriend id={this.props.id}></AddFriend>
             </p>
             <div className='bio'>
                 {this.props.bio}

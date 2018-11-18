@@ -7,14 +7,15 @@ import getUserAction from '../actions/user'
 import { connect } from 'react-redux';
 class Account extends Component {
     render() {
-        if(!this.props.profileData.loggedIn)
+        console.log(this.props.profileData)
+        if(this.props.loggedIn == false)
         {
             return(<Redirect to='/login'></Redirect>)
         }
         return (
             <div> 
                 <div className='Profile'>
-                <User image={this.props.profileData.image} name={'You'} bio={this.props.profileData.bio} friends={this.props.profileData.friends}>
+                <User image={'images/' + this.props.profileData.image} name={'You'} bio={this.props.profileData.bio} friends={this.props.profileData.friends}>
                 </User>
                 <div className='main'>
                     <p className='profile-username posts-title' >Posts</p>
@@ -28,13 +29,15 @@ class Account extends Component {
     }
     componentDidMount() {
         this.props.dispatch(getUserAction());
-
+        console.log("test");
+       
     }
 
 }
 const mapStateToProps = (state) => {
     return {
-        profileData: state.profileReducer.myData
+        profileData: state.profileReducer.myData,
+        loggedIn:state.profileReducer.loggedIn
     }
 }
 

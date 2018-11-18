@@ -11,7 +11,7 @@ class Profile extends Component {
     render() {
         return (
             <div className='Profile'>
-                <User image={this.props.profileData.image} name={this.props.match.params.userId} bio={this.props.profileData.bio} friends={this.props.profileData.friends}>
+                <User image={'/images/' + this.props.profileData.image} name={this.props.match.params.userId} bio={this.props.profileData.bio} id={this.props.profileData.id} friends={this.props.profileData.friends}>
                 </User>
                 <div className='main'>
                     <p className='profile-username posts-title' >Posts</p>
