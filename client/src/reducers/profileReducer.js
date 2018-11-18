@@ -19,7 +19,6 @@ const initialState = {
         bio:''
     },
     success:false
-    
 
 }
 const profileReducer = (state = initialState, action) => {
