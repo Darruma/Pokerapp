@@ -57,29 +57,28 @@ router.get('/me', (req, res) => {
   }
   else {
     User.findById(req.session.user_id, (err, user) => {
-        if(err)
+      if (err) {
+        return res.json({
+          success: false,
+          message: 'Server Error'
+        })
+      }
+      return res.json(
         {
-          return res.json({
-            success:false,
-            message:'Server Error'
-          })
-        }
-        return res.json(
+          success: true,
+          data:
           {
-            success:true,
-            data:
-            {
-              image:user.profile_pic,
-              friends:user.getMyFriends(),
-              priceData: user.priceData,
-              posts: user.posts,
-              wins: user.wins,
-              losses: user.losses,
-              draws: 0,
-              bio: user.bio,
-            }
+            image: user.profile_pic,
+            friends: user.getMyFriends(),
+            priceData: user.priceData,
+            posts: user.posts,
+            wins: user.wins,
+            losses: user.losses,
+            draws: 0,
+            bio: user.bio,
           }
-        )
+        }
+      )
     })
   }
 })
@@ -121,8 +120,8 @@ router.get('/:username', (req, res) => {
               losses: user.losses,
               draws: 0,
               bio: user.bio,
-              loggedIn:true,
-              id:user._id
+              loggedIn: true,
+              id: user._id
             }
           }
         )
@@ -168,17 +167,18 @@ router.get('/search/:username', (req, res) => {
         }
       )
     }
-    return res.json(
-      users.map((element) => {
+    return res.json({
+      success: true,
+      payload: users.map((element) => {
         return {
-          success: true,
           username: element.username,
           bio: element.bio,
           image: element.profile_pic,
           id: element._id
         }
       })
-    )
+
+    })
   })
 
 })
