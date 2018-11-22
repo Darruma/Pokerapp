@@ -15,6 +15,7 @@ class Sidebar extends Component {
                     <Link className='link' to='/'><img className={'icon ' + (this.props.page == '' || 'unselected') }  onClick={(e) => this.changePage(e,'')} src={home}></img></Link>
                     <Link className='link' to='/leaderboard'><img className={'icon ' + (this.props.page == 'leaderboard' || 'unselected') } onClick={e => this.changePage(e,'leaderboard')} src={leaderboard}></img></Link>
                     <Link className='link' to='/game'><img className={'icon ' + (this.props.page == 'game' || 'unselected') } onClick={e => this.changePage(e,'game')} src={poker}></img></Link>
+                    <Link className='link' to='/search'><img className={'icon ' + (this.props.page == 'search' || 'unselected') } onClick={e => this.changePage(e,'search')} src={poker}></img></Link>
                 </nav>
             </div>
         )

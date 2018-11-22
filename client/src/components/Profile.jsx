@@ -23,8 +23,7 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(getProfileAction(this.props.match.params.userId));
-
+     //   this.props.dispatch(getProfileAction(this.props.match.params.userId));
     }
 
 }

@@ -36,7 +36,6 @@ class App extends Component {
                                 <Route path='/game' component={Game}> </Route>
                                 <Route path='/account' component={Account}> </Route>
                                 <Route path='/search' component={Search}></Route>
-                                
                             </Switch>
                         </div>
                        
