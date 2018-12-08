@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 var jac_matrix = {}
-User.find((err, users) => {
-  jac_matrix = jaccard_matrix(users.map(el => el.id));
-});
+// User.find((err, users) => {
+//   jac_matrix = jaccard_matrix(users.map(el => el.id));
+// });
 function jaccard(a, b) {
   if (a.friends.length == 0 || b.friends.length == 0) {
     return 0
@@ -24,7 +24,7 @@ function jaccard_matrix(users) {
   grid = {}
   for (var i = 0; i < users.length; i++) {
     for (var j = 0; j < users.length; j++) {
-      var score = jaccard(user1, user2);
+      var score = jaccard(users[i], users[i]);
       grid[users[i]][users[j]] = score;
     }
   }

@@ -26,3 +26,4 @@ const friendRequestResponseAction = (answer, ids) => {
         )
     }
 }
+export default friendRequestResponseAction;

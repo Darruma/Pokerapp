@@ -1,0 +1,12 @@
+.lobby
+{
+    display: flex;
+    flex-direction: row;
+    height: 10px;
+    width: 100%;
+}
+
+.lobby-cell
+{
+    border: 1px solid black;
+}
