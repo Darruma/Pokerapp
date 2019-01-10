@@ -10,3 +10,9 @@ A poker website made with Node.js and Websockets on the back-end and React and R
 - [ ] Add Instant Messaging between friends
 - [ ] Add ability to invite friends to games
 - [ ] Add homepage/Account screen for users
+
+Technologies
+- React
+- Node
+- Express
+- MongoDB
