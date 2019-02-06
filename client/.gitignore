@@ -7,7 +7,7 @@
 /coverage
 
 # build 
-
+/build
 # misc
 .DS_Store
 .env.local

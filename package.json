@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"nodemon server.js\" \" cd ./client && npm run start\"",
-    "preinstall": "cd client && npm install && npm audit fix&& npm run build.",
     "start": "node server.js"
   },
   "author": "Darruma",
