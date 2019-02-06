@@ -14,15 +14,10 @@ const accounts = require('./routes/accounts');
 const profiles = require('./routes/profiles');
 const tables = require('./routes/tables.js');
 
-const Table = require('./models/Table');
-const Player = require('./models/Player')
 const session = express_session({ secret: "oregano", resave: false, saveUninitialised: true });
 var sharedsession = require("express-socket.io-session");
 app.use(session);
 
-io.use(sharedsession(session, {
-    autoSave: true
-}));
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({
@@ -32,11 +27,7 @@ app.use(bodyParser.urlencoded({
 app.use('/api', accounts);
 app.use('/api/profiles', profiles);
 app.use('/api', tables);
-io.on('connect', clientsEvents);
 
-function clientsEvents()
-{
-}
 
 
 // add messaging with socket.io
