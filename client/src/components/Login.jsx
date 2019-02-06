@@ -5,17 +5,12 @@ import { updateLoginAction } from '../actions/login'
 import { changeLoginAction } from '../actions/login'
 import Modal from 'react-modal'
 import changeModalAction from '../actions/modal';
-import { Redirect }from 'react-router-dom'
 import changeModalText from '../actions/modal_text'
 import postLoginAction from '../actions/authenticate'
 
 class Login extends Component {
     render() {
 
-        if(this.props.loggedIn)
-        {
-            return (<Redirect to='/account'></Redirect>)
-        }
         return (
             <div className='login-container'>
                 <Modal appElement={document.getElementById('root')} className='modal' isOpen={this.props.modal_active}>

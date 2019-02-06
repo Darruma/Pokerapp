@@ -27,6 +27,7 @@ app.use('/api/profiles', profiles);
 app.use('/api', tables);
 
 app.use(express.static(path.join(__dirname, 'client', 'build')));
+
 app.use('/images', express.static(path.join(__dirname, '/client/images/')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/client/build/index.html'));
