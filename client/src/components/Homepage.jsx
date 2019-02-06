@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade';
 import Bounce from 'react-reveal/Bounce'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom'
 class Homepage extends Component {
     render() {
 
